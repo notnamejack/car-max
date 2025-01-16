@@ -1,2 +1,2 @@
-import Main from "./main";
-export {Main}
+import Main from './main';
+export { Main };

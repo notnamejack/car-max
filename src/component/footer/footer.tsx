@@ -1,7 +1,7 @@
 import s from './footer.module.scss';
 
-export function Footer(){
-	return(
+export function Footer() {
+	return (
 		<footer>
 			<div className={s.container}>
 				<div className={s.top}>
@@ -12,11 +12,11 @@ export function Footer(){
 					<div className={s.contact}>
 						<div className={s.contact_block}>
 							<p>Email</p>
-							<a href="">hello@relume.io</a>
+							<a href=''>hello@relume.io</a>
 						</div>
 						<div className={s.contact_block}>
 							<p>Phone</p>
-							<a href="">+1 (555) 000-0000</a>
+							<a href=''>+1 (555) 000-0000</a>
 						</div>
 					</div>
 					<p>© 2024 DragRacing. All rights reserved.</p>

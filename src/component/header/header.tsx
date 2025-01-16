@@ -1,7 +1,3 @@
-
-
-export function Header(){
-	return(
-		<></>
-	)
+export function Header() {
+	return <></>;
 }
