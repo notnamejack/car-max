@@ -20,7 +20,20 @@ h4,
 h5,
 h6,
 p,
-a {
+a,
+ul,
+li {
 	margin: 0;
 	padding: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+button {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	outline: none;
 }

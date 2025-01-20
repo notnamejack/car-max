@@ -1,7 +1,6 @@
 footer {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: center;
 	background-color: #000;
 	width: 100%;
 	.container {
@@ -11,7 +10,7 @@ footer {
 		flex-direction: column;
 		align-items: center;
 		gap: 30px;
-		max-width: 1312px;
+		width: 1312px;
 	}
 	.top {
 		display: flex;
