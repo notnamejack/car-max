@@ -1,6 +1,12 @@
 import clsx from 'clsx';
 import s from './main.module.scss';
-import { Footer, Header, PhoneSection, StartSection } from '../../component';
+import {
+	Footer,
+	Header,
+	PhoneSection,
+	StartSection,
+	TokenSection,
+} from '../../component';
 
 export function Main() {
 	return (
@@ -9,6 +15,7 @@ export function Main() {
 			<main>
 				<StartSection />
 				<PhoneSection />
+				<TokenSection />
 			</main>
 			<Footer />
 		</>
