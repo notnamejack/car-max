@@ -19,23 +19,27 @@
 			align-items: center;
 			gap: 70px;
 			li {
-				color: rgba(34, 247, 216, 0.7);
-				font-family: Moula;
-				font-size: 26px;
-				font-style: normal;
-				font-weight: 600;
-				line-height: 87%; /* 22.62px */
-				text-transform: uppercase;
-				&.active {
-					color: #22f7d8;
-					/* 2 */
-					text-shadow: 0px 0px 15px rgba(34, 247, 216, 0.8);
+				button {
+					color: rgba(34, 247, 216, 0.7);
 					font-family: Moula;
-					font-size: 36px;
+					font-size: 26px;
 					font-style: normal;
 					font-weight: 600;
-					line-height: 87%; /* 31.32px */
+					line-height: 87%; /* 22.62px */
 					text-transform: uppercase;
+				}
+				&.active {
+					button {
+						color: #22f7d8;
+						/* 2 */
+						text-shadow: 0px 0px 15px rgba(34, 247, 216, 0.8);
+						font-family: Moula;
+						font-size: 36px;
+						font-style: normal;
+						font-weight: 600;
+						line-height: 87%; /* 31.32px */
+						text-transform: uppercase;
+					}
 				}
 			}
 		}
@@ -56,8 +60,67 @@
 			display: flex;
 			align-items: center;
 			height: 710px;
-			svg {
-				transform: scale(0.8);
+			.left {
+				transform: translateX(200px);
+			}
+			.rigth {
+				transform: translateX(-200px);
+			}
+			.frame {
+				display: flex;
+				justify-content: center;
+				width: 1240px;
+				.frame_items {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					width: 100%;
+					.frame_item {
+						flex-direction: column;
+						align-items: center;
+						gap: 90px;
+						width: 100%;
+						transform: translateY(264px);
+						display: none;
+						transition: transform 0.3s;
+						&.show {
+							display: none;
+							transform: translateX(-264px);
+						}
+						&.active {
+							display: flex;
+							transform: translateX(0);
+						}
+						.itemes {
+							display: flex;
+							align-items: center;
+							gap: 50px;
+							.item {
+								display: flex;
+								flex-direction: column;
+								align-items: flex-start;
+								gap: 8px;
+								h3 {
+									color: #fff;
+									font-family: Moula;
+									font-size: 26px;
+									font-style: normal;
+									font-weight: 600;
+									line-height: 87%; /* 22.62px */
+									text-transform: uppercase;
+								}
+								p {
+									color: #c1c1c1;
+									font-family: Inter;
+									font-size: 18px;
+									font-style: normal;
+									font-weight: 400;
+									line-height: 155%; /* 27.9px */
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
