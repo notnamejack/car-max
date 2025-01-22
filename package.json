@@ -58,7 +58,7 @@
 		"test": "yarn stylelint:fix && yarn lint && yarn format",
 		"prepare": "husky install",
 		"commit": "yarn test && cz",
-		"deploy": "gh-pages -d build"
+		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
 		"clsx": "^2.1.0",

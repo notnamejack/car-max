@@ -84,8 +84,8 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 			filename: production
-				? 'static/styles/[name].[contenthash].css'
-				: 'static/styles/[name].css',
+				? './static/styles/[name].[contenthash].css'
+				: './static/styles/[name].css',
 		}),
 		new webpack.EnvironmentPlugin({
 			NODE_ENV: 'development', // значение по умолчанию 'development' если переменная process.env.NODE_ENV не передана
