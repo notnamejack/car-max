@@ -22,19 +22,19 @@ export function TokenSection({ scroll }: ISection) {
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		if (scroll <= 3400) {
+		if (scroll <= 3200) {
 			setActiveNav(0);
 		}
 		if (scroll >= 3600) {
 			setActiveNav(1);
 		}
-		if (scroll >= 3800) {
+		if (scroll >= 4000) {
 			setActiveNav(2);
 		}
-		if (scroll >= 4000) {
+		if (scroll >= 4400) {
 			setActiveNav(3);
 		}
-		if (scroll >= 4200) {
+		if (scroll >= 4800) {
 			setActiveNav(4);
 		}
 	}, [scroll]);

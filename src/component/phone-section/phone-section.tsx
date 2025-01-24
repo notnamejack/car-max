@@ -20,20 +20,35 @@ export function PhoneSection({ scroll }: ISection) {
 		'Earn',
 	]);
 	const [activeNav, setActiveNav] = useState(0);
+	const [isMobile, setIsMobile] = useState(false);
 
 	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		window.addEventListener('resize', changeWigth);
+		return () => {
+			window.removeEventListener('resize', changeWigth);
+		};
+	}, []);
+
+	const changeWigth = () => {
+		if(window.document.documentElement.clientWidth <= 375)
+			setIsMobile(true);
+		else
+			setIsMobile(false);
+	}
 
 	useEffect(() => {
 		if (scroll <= 1240) {
 			setActiveNav(0);
 		}
-		if (scroll >= 1300) {
+		if (scroll >= 1400) {
 			setActiveNav(1);
 		}
-		if (scroll >= 1500) {
+		if (scroll >= 1700) {
 			setActiveNav(2);
 		}
-		if (scroll >= 1700) {
+		if (scroll >= 2000) {
 			setActiveNav(3);
 		}
 	}, [scroll]);
@@ -41,7 +56,7 @@ export function PhoneSection({ scroll }: ISection) {
 	return (
 		<div className={s.container} ref={ref}>
 			<div className={s.container_transform}>
-				<img src="./image/backtound.jpg" alt='fone' className={s.backtound} />
+				<img src={!isMobile ? "./image/backtound.jpg" : "./image/backtound-min.jpg"} alt='fone' className={s.backtound} />
 				<div className={s.body}>
 					<h2>REVOLUTION OF TELEGRAM GAMES</h2>
 					<ul>

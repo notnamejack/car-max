@@ -22,23 +22,28 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 30px;
-		padding-bottom: 60px;
 		height: 960px;
 		top: 100px;
 		position: sticky;
 		overflow-x: hidden;
+		z-index: 10;
 		.nav {
 			position: relative;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			width: 1005px;
+			z-index: 100;
 			ul {
+				position: relative;
 				display: flex;
 				align-items: center;
 				gap: 70px;
+				padding: 8px 0;
+				z-index: 100;
 				li {
 					button {
+						cursor: pointer;
 						color: rgba(34, 247, 216, 0.7);
 						font-family: Moula;
 						font-size: 26px;
@@ -152,7 +157,7 @@
 		}
 	}
 	.content{
-		height: 1500px;
+		height: 2400px;
 	}
 }
 
