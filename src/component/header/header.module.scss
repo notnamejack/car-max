@@ -51,3 +51,13 @@ header {
 		}
 	}
 }
+
+@media (max-width: 760px){
+	header{
+		.container{
+			width: calc(100% - 60px);
+			padding: 20px 30px;
+			margin: 0;
+		}
+	}
+}
