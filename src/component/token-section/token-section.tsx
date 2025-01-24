@@ -3,25 +3,51 @@ import clsx from 'clsx';
 import { ReactComponent as Top } from './assets/top.svg';
 import left from './assets/left.png';
 import rigth from './assets/rigth.png';
+import { useEffect, useState } from 'react';
 
-export function TokenSection() {
+interface ISection {
+	scroll: number;
+}
+
+export function TokenSection({ scroll }: ISection) {
+	const [navItems, setNavItems] = useState<string[]>([
+		'q1',
+		'q2',
+		'q3',
+		'q4',
+	]);
+	const [activeNav, setActiveNav] = useState(0);
+
+	useEffect(() => {
+		if (scroll <= 3400) {
+			setActiveNav(0);
+		}
+		if (scroll >= 3600) {
+			setActiveNav(1);
+		}
+		if (scroll >= 3800) {
+			setActiveNav(2);
+		}
+		if (scroll >= 4000) {
+			setActiveNav(3);
+		}
+		if (scroll >= 4200) {
+			setActiveNav(4);
+		}
+	}, [scroll]);
+
+	console.log(scroll)
+
 	return (
 		<div className={s.container}>
 			<div className={s.body}>
 				<div className={s.nav}>
 					<ul>
-						<li className={s.active}>
-							<button>q1</button>
-						</li>
-						<li>
-							<button>q2</button>
-						</li>
-						<li>
-							<button>q3</button>
-						</li>
-						<li>
-							<button>q4</button>
-						</li>
+						{navItems.map((item, index) =>
+							<li className={`${index == activeNav && s.active}`}>
+								<button onClick={() => setActiveNav(index)}>{item}</button>
+							</li>
+						)}
 					</ul>
 					<Top />
 				</div>
@@ -30,8 +56,8 @@ export function TokenSection() {
 						<img src={left} />
 					</div>
 					<div className={s.frame}>
-						<ul className={s.frame_items}>
-							<li className={clsx(s.frame_item, s.show)}>
+						<div className={clsx(s.cascade)}>
+							<div className={clsx(s.cascade_main, activeNav > 0 && s.show)}>
 								<ul className={s.itemes}>
 									<li className={s.item}>
 										<h3>Запуск MVP</h3>
@@ -75,117 +101,141 @@ export function TokenSection() {
 										<p>Промо с партнёрами и механика с шансом 0,5% на призы.</p>
 									</li>
 								</ul>
-							</li>
-							<li className={clsx(s.frame_item, s.active)}>
-								<ul className={s.itemes}>
-									<li className={s.item}>
-										<h3>Механика крипто-доната</h3>
-										<p>Добавить донат для покупки валюты и роста аккаунтов.</p>
-									</li>
-									<li className={s.item}>
-										<h3>Пересмотр механики</h3>
-										<p>
-											Проработка поведения и управления для максимальной
-											реалистичности.
-										</p>
-									</li>
-									<li className={s.item}>
-										<h3>Масс-привлечение юзеров</h3>
-										<p>
-											Маркетинг + раздачи (AirDrop) для новых пользователей.
-										</p>
-									</li>
-								</ul>
-								<ul className={s.itemes}>
-									<li className={s.item}>
-										<h3>Режим турнира</h3>
-										<p>Привлечь аудиторию конкурентов через турнир.</p>
-									</li>
-									<li className={s.item}>
-										<h3>2-й инвестиционный раунд</h3>
-										<p>
-											Привлечение средств для развития игры, масштабирования и
-											новых возможностей.
-										</p>
-									</li>
-									<li className={s.item}>
-										<h3>Улучшение UX и токеномики</h3>
-										<p>Доработать интерфейс и токеномику по фидбэку.</p>
-									</li>
-								</ul>
-							</li>
-							<li className={s.frame_item}>
-								<ul className={s.itemes}>
-									<li className={s.item}>
-										<h3>3D-модели автомобилей</h3>
-										<p>Переход на 3D для улучшения визуала и кастомизации.</p>
-									</li>
-									<li className={s.item}>
-										<h3>Функции кастомизации</h3>
-										<p>
-											Расширение возможностей для привлечения коллекционеров.
-										</p>
-									</li>
-									<li className={s.item}>
-										<h3>Реферальная программа</h3>
-										<p>
-											Внедрение 3-уровневой системы для органического роста.
-										</p>
-									</li>
-								</ul>
-								<ul className={s.itemes}>
-									<li className={s.item}>
-										<h3>Третья итерация</h3>
-										<p>Выпуск версии с улучшениями и новой кастомизацией.</p>
-									</li>
-									<li className={s.item}>
-										<h3>Листинг токенов</h3>
-										<p>
-											Размещение токенов на платформах для повышения
-											доступности.
-										</p>
-									</li>
-									<li className={s.item}>
-										<h3>Удержание аудитории</h3>
-										<p>
-											Разработка механик для долгосрочного вовлечения
-											пользователей.
-										</p>
-									</li>
-								</ul>
-							</li>
-							<li className={s.frame_item}>
-								<ul className={s.itemes}>
-									<li className={s.item}>
-										<h3>Удержание аудитории</h3>
-										<p>
-											Внедрить функции для интереса пользователей и создания
-											экосистемы.
-										</p>
-									</li>
-									<li className={s.item}>
-										<h3>Торговля токенами</h3>
-										<p>Разрешить обмен токенов внутри приложения.</p>
-									</li>
-								</ul>
-								<ul className={s.itemes}>
-									<li className={s.item}>
-										<h3>Отчет для инвесторов</h3>
-										<p>Показать достижения и потенциал CarMax за год.</p>
-									</li>
-									<li className={s.item}>
-										<h3>Ремаркетинг</h3>
-										<p>Запуск кампании для возврата ушедших пользователей.</p>
-									</li>
-								</ul>
-							</li>
-						</ul>
+							</div>
+							<div className={s.cascade_doublee}>
+								<div className={clsx(s.cascade, activeNav > 0 && s.active)}>
+									<div className={clsx(s.cascade_main, activeNav > 1 && s.show)}>
+										<ul className={s.itemes}>
+											<li className={s.item}>
+												<h3>Механика крипто-доната</h3>
+												<p>Добавить донат для покупки валюты и роста аккаунтов.</p>
+											</li>
+											<li className={s.item}>
+												<h3>Пересмотр механики</h3>
+												<p>
+													Проработка поведения и управления для максимальной
+													реалистичности.
+												</p>
+											</li>
+											<li className={s.item}>
+												<h3>Масс-привлечение юзеров</h3>
+												<p>
+													Маркетинг + раздачи (AirDrop) для новых пользователей.
+												</p>
+											</li>
+										</ul>
+										<ul className={s.itemes}>
+											<li className={s.item}>
+												<h3>Режим турнира</h3>
+												<p>Привлечь аудиторию конкурентов через турнир.</p>
+											</li>
+											<li className={s.item}>
+												<h3>2-й инвестиционный раунд</h3>
+												<p>
+													Привлечение средств для развития игры, масштабирования и
+													новых возможностей.
+												</p>
+											</li>
+											<li className={s.item}>
+												<h3>Улучшение UX и токеномики</h3>
+												<p>Доработать интерфейс и токеномику по фидбэку.</p>
+											</li>
+										</ul>
+									</div>
+									<div className={s.cascade_doublee}>
+										<div className={clsx(s.cascade, activeNav > 1 && s.active)}>
+											<div className={clsx(s.cascade_main, activeNav > 2 && s.show)}>
+												<ul className={s.itemes}>
+													<li className={s.item}>
+														<h3>3D-модели автомобилей</h3>
+														<p>Переход на 3D для улучшения визуала и кастомизации.</p>
+													</li>
+													<li className={s.item}>
+														<h3>Функции кастомизации</h3>
+														<p>
+															Расширение возможностей для привлечения коллекционеров.
+														</p>
+													</li>
+													<li className={s.item}>
+														<h3>Реферальная программа</h3>
+														<p>
+															Внедрение 3-уровневой системы для органического роста.
+														</p>
+													</li>
+												</ul>
+												<ul className={s.itemes}>
+													<li className={s.item}>
+														<h3>Третья итерация</h3>
+														<p>Выпуск версии с улучшениями и новой кастомизацией.</p>
+													</li>
+													<li className={s.item}>
+														<h3>Листинг токенов</h3>
+														<p>
+															Размещение токенов на платформах для повышения
+															доступности.
+														</p>
+													</li>
+													<li className={s.item}>
+														<h3>Удержание аудитории</h3>
+														<p>
+															Разработка механик для долгосрочного вовлечения
+															пользователей.
+														</p>
+													</li>
+												</ul>
+											</div>
+											<div className={s.cascade_doublee}>
+												<div className={clsx(s.cascade, activeNav > 2 && s.active)}>
+													<div className={clsx(s.cascade_main, activeNav > 3 && s.show)}>
+														<ul className={s.itemes}>
+															<li className={s.item}>
+																<h3>Удержание аудитории</h3>
+																<p>
+																	Внедрить функции для интереса пользователей и создания
+																	экосистемы.
+																</p>
+															</li>
+															<li className={s.item}>
+																<h3>Торговля токенами</h3>
+																<p>Разрешить обмен токенов внутри приложения.</p>
+															</li>
+														</ul>
+														<ul className={s.itemes}>
+															<li className={s.item}>
+																<h3>Отчет для инвесторов</h3>
+																<p>Показать достижения и потенциал CarMax за год.</p>
+															</li>
+															<li className={s.item}>
+																<h3>Ремаркетинг</h3>
+																<p>Запуск кампании для возврата ушедших пользователей.</p>
+															</li>
+														</ul>
+													</div>
+													<div className={s.cascade_doublee}>
+														<div className={clsx(s.cascade, activeNav > 3 && s.active)}>
+															<div className={clsx(s.cascade_main, activeNav > 4 && s.show)}>
+
+															</div>
+															<div className={s.cascade_doublee}>
+
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</div>
 					<div className={s.rigth}>
 						<img src={rigth} />
 					</div>
 				</div>
 			</div>
+			<div className={s.content}></div>
 		</div>
 	);
 }

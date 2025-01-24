@@ -70,8 +70,7 @@ export function PhoneSection({ scroll }: ISection) {
 											<img src={two} />
 										</div>
 										<div className={s.cascade_doublee}>
-											<div
-												className={clsx(s.cascade, activeNav > 1 && s.active)}>
+											<div className={clsx(s.cascade, activeNav > 1 && s.active)}>
 												<div className={s.cascade_main}>
 													<img src={tree} />
 												</div>
