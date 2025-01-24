@@ -28,7 +28,7 @@ export function Main() {
 			<Header />
 			<main>
 				<StartSection />
-				{/* <PhoneSection scroll={scroll} /> */}
+				<PhoneSection scroll={scroll} />
 				{/* <TokenSection scroll={scroll} /> */}
 			</main>
 			<Footer />

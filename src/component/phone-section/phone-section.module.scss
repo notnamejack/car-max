@@ -147,3 +147,52 @@
 		position: relative;
 	}
 }
+
+@media (max-width: 375px){
+	.container{
+		.container_transform{
+			.body{
+				height: calc(100% - 120px);
+				h2{
+					font-size: 32px;
+				}
+				ul li button{
+					height: 36px;
+					font-size: 14px;
+				}
+			}
+			.container_phone{
+				.phone{
+					justify-content: flex-end;
+					height: 640px;
+					.phone_blur{
+						width: 640px;
+						height: 640px;
+					}
+					.pattern_items{
+						.cascade{
+							height: 432.511px;
+							border-radius: 26px;
+							&.active {
+								transform: translateY(-432.511px);
+							}
+							.cascade_main{
+								height: 432.511px;
+								border-radius: 26px;
+								img{
+									height: 432.511px;
+									border-radius: 26px;
+								}
+							}
+						}
+						.pattern_phone{
+							top: -10.52px;
+							left: -56.53px;
+							height: 602.097px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

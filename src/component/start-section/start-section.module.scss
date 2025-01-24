@@ -70,3 +70,18 @@
 		}
 	}
 }
+
+@media (max-width: 375px){
+	.container{
+		.block_title{
+			padding-bottom: 45px;
+			height: calc(100% - 90px);
+			h1{
+				font-size: 32px;
+			}
+			p{
+				font-size: 14px;
+			}
+		}
+	}
+}

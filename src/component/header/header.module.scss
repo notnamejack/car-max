@@ -61,3 +61,13 @@ header {
 		}
 	}
 }
+
+@media (max-width: 375px){
+	header{
+		.container{
+			nav ul{
+				display: none;
+			}
+		}
+	}
+}
