@@ -29,7 +29,7 @@ export function Main() {
 			<main>
 				<StartSection />
 				<PhoneSection scroll={scroll} />
-				{/* <TokenSection scroll={scroll} /> */}
+				<TokenSection scroll={scroll} />
 			</main>
 			<Footer />
 		</>

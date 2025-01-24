@@ -8,6 +8,15 @@
 	height: min-content;
 	z-index: 1;
 	background: #000;
+	&::after{
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 100;
+	}
 	.body {
 		display: flex;
 		flex-direction: column;
@@ -17,6 +26,7 @@
 		height: 960px;
 		top: 100px;
 		position: sticky;
+		overflow-x: hidden;
 		.nav {
 			position: relative;
 			display: flex;
@@ -77,20 +87,18 @@
 				.cascade {
 					height: 264px;
 					width: 1240px;
-					overflow-x: auto;
+					overflow-x: hidden;
 					scrollbar-width: none;
 					transition: transform .5s;
 					&.active {
 						transform: translateY(-264px);
 					}
 					.cascade_main {
+						transition: transform 1s, opacity .3s;
 						display: flex;
 						flex-direction: column;
 						align-items: center;
-						gap: 90px;
-						width: 100%;
-						height: 100%;
-						transition: transform 1s, opacity .3s;
+						overflow: hidden;
 						&.show{
 							opacity: 0;
 							transform: scale(0);
@@ -98,12 +106,21 @@
 						.itemes{
 							display: flex;
 							align-items: center;
-							gap: 50px;
+							justify-content: center;
+							flex-wrap: wrap;
+							height: 264px;
+							width: 1240px;
+							gap: 90px 50px;
+							overflow: hidden;
+							&.item_four{
+								width: calc(1240px - 380px);
+							}
 							.item {
 								display: flex;
 								flex-direction: column;
 								align-items: flex-start;
 								gap: 8px;
+								margin-bottom: auto;
 								max-width: 380px;
 								h3 {
 									color: #fff;
@@ -125,11 +142,161 @@
 							}
 						}
 					}
+					.cascade_doublee{
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+					}
 				}
 			}
 		}
 	}
 	.content{
-		height: 960px;
+		height: 1500px;
+	}
+}
+
+
+@media (max-width: 760px){
+	.container{
+		.body{
+			top: 0;
+			.nav{
+				position: absolute;
+				top: 150px;
+				left: 0;
+				svg{
+				display: none;
+			}}
+			.token{
+				position: relative;
+				flex-direction: column;
+				.left{
+					position: absolute;
+					top: 0;
+					transform: rotate(90deg) translateX(-400px);
+				}
+				.rigth{
+					transform: rotate(90deg) translateX(-100px);
+				}
+				.frame{
+					padding-top: 240px;
+					width: 100%;
+					.cascade {
+						width: 100%;
+						height: 550px;
+						&.active {
+							transform: translateY(-550px);
+						}
+						.cascade_main {
+							justify-content: center;
+							height: 550px;
+							.itemes{
+								width: 680px;
+								height: 550px;
+								gap: 90px 30px;
+								justify-content: center;
+								&.item_four{
+									height: 300px;
+								}
+								.item{
+									width: 320px;
+									h3{
+										font-size: 26px;
+										font-style: normal;
+										font-weight: 600;
+										line-height: 87%;
+										text-transform: uppercase;
+									}
+								}
+
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 375px){
+	.container{
+		.body{
+			top: 0;
+			height: 100vh;
+			.nav{
+				width: 100%;
+				top: 40px;
+				ul{
+					gap: 50px;
+					li {
+						&.active{
+							font-size: 30px;
+						}
+						button{
+							font-size: 20px;
+						}
+					}
+				}
+				svg{
+					display: none;
+				}
+			}
+			.token{
+				position: relative;
+				flex-direction: column;
+				.left{
+					position: absolute;
+					top: 0;
+					transform: translateY(-480px);
+				}
+				.rigth{
+					transform: translateY(-220px);
+					// display: none;
+				}
+				.frame{
+					padding-top: 100px;
+					.cascade {
+
+						height: 524px;
+						&.active {
+							transform: translateY(-524px);
+						}
+						.cascade_main {
+							justify-content: center;
+							height: 524px;
+							.itemes{
+								max-width: 375px;
+								height: 524px;
+								flex-wrap: nowrap;
+								flex-direction: column;
+								justify-content: center;
+								gap: 20px;
+								&.item_four{
+									height: 400px;
+								}
+								.item{
+									padding: 0px 16px;
+									h3{
+										font-size: 20px;
+										font-style: normal;
+										font-weight: 600;
+										line-height: 87%;
+										text-transform: uppercase;
+									}
+									p{
+										font-size: 14px;
+										font-style: normal;
+										font-weight: 400;
+										line-height: 155%; /* 21.7px */
+									}
+								}
+
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

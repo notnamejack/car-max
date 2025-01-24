@@ -2,7 +2,9 @@ import s from './token-section.module.scss';
 import clsx from 'clsx';
 import { ReactComponent as Top } from './assets/top.svg';
 import left from './assets/left.png';
+import leftMin from './assets/left-min.png';
 import rigth from './assets/rigth.png';
+import rigthMin from './assets/rigth-min.png';
 import { useEffect, useState } from 'react';
 
 interface ISection {
@@ -17,6 +19,7 @@ export function TokenSection({ scroll }: ISection) {
 		'q4',
 	]);
 	const [activeNav, setActiveNav] = useState(0);
+	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
 		if (scroll <= 3400) {
@@ -36,6 +39,21 @@ export function TokenSection({ scroll }: ISection) {
 		}
 	}, [scroll]);
 
+
+	useEffect(() => {
+		window.addEventListener('resize', changeWigth);
+		return () => {
+			window.removeEventListener('resize', changeWigth);
+		};
+	}, []);
+
+	const changeWigth = () => {
+		if(window.document.documentElement.clientWidth <= 375)
+			setIsMobile(true);
+		else
+			setIsMobile(false);
+	}
+
 	console.log(scroll)
 
 	return (
@@ -53,7 +71,7 @@ export function TokenSection({ scroll }: ISection) {
 				</div>
 				<div className={s.token}>
 					<div className={s.left}>
-						<img src={left} />
+						<img src={!isMobile ? left : leftMin} />
 					</div>
 					<div className={s.frame}>
 						<div className={clsx(s.cascade)}>
@@ -80,8 +98,6 @@ export function TokenSection({ scroll }: ISection) {
 											исправления ошибок.
 										</p>
 									</li>
-								</ul>
-								<ul className={s.itemes}>
 									<li className={s.item}>
 										<h3>Карьерный режим</h3>
 										<p>
@@ -123,8 +139,6 @@ export function TokenSection({ scroll }: ISection) {
 													Маркетинг + раздачи (AirDrop) для новых пользователей.
 												</p>
 											</li>
-										</ul>
-										<ul className={s.itemes}>
 											<li className={s.item}>
 												<h3>Режим турнира</h3>
 												<p>Привлечь аудиторию конкурентов через турнир.</p>
@@ -162,8 +176,6 @@ export function TokenSection({ scroll }: ISection) {
 															Внедрение 3-уровневой системы для органического роста.
 														</p>
 													</li>
-												</ul>
-												<ul className={s.itemes}>
 													<li className={s.item}>
 														<h3>Третья итерация</h3>
 														<p>Выпуск версии с улучшениями и новой кастомизацией.</p>
@@ -187,8 +199,8 @@ export function TokenSection({ scroll }: ISection) {
 											<div className={s.cascade_doublee}>
 												<div className={clsx(s.cascade, activeNav > 2 && s.active)}>
 													<div className={clsx(s.cascade_main, activeNav > 3 && s.show)}>
-														<ul className={s.itemes}>
-															<li className={s.item}>
+														<ul className={clsx(s.itemes, s.item_four)}>
+															<li className={clsx(s.item)}>
 																<h3>Удержание аудитории</h3>
 																<p>
 																	Внедрить функции для интереса пользователей и создания
@@ -199,8 +211,6 @@ export function TokenSection({ scroll }: ISection) {
 																<h3>Торговля токенами</h3>
 																<p>Разрешить обмен токенов внутри приложения.</p>
 															</li>
-														</ul>
-														<ul className={s.itemes}>
 															<li className={s.item}>
 																<h3>Отчет для инвесторов</h3>
 																<p>Показать достижения и потенциал CarMax за год.</p>
@@ -231,7 +241,7 @@ export function TokenSection({ scroll }: ISection) {
 						</div>
 					</div>
 					<div className={s.rigth}>
-						<img src={rigth} />
+						<img src={!isMobile ? rigth : rigthMin} />
 					</div>
 				</div>
 			</div>

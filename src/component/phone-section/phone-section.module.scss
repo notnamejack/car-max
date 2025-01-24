@@ -148,6 +148,13 @@
 	}
 }
 
+
+@media (max-width: 760px){
+	.container{
+		z-index: 100;
+	}
+}
+
 @media (max-width: 375px){
 	.container{
 		.container_transform{
