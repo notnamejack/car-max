@@ -1,4 +1,4 @@
-import image from './assets/backtound.jpg';
+
 import phoneImg from './assets/phone.png';
 import one from './assets/one.jpg';
 import two from './assets/two.jpg';
@@ -41,7 +41,7 @@ export function PhoneSection({ scroll }: ISection) {
 	return (
 		<div className={s.container} ref={ref}>
 			<div className={s.container_transform}>
-				<img src={image} className={s.backtound} />
+				<img src="./image/backtound.jpg" className={s.backtound} />
 				<div className={s.body}>
 					<h2>REVOLUTION OF TELEGRAM GAMES</h2>
 					<ul>

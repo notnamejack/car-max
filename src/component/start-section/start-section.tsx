@@ -3,8 +3,8 @@ import s from './start-section.module.scss';
 export function StartSection() {
 	return (
 		<div className={s.container}>
-			<video className={s.video} autoPlay loop muted>
-				<source src='/video/top.mp4' type='video/mp4' />
+			<video className={s.video} autoPlay loop muted playsInline>
+				<source src='./video/top.mp4' type='video/mp4' />
 			</video>
 			<div className={s.block_title}>
 				<h1>Online drag racing</h1>

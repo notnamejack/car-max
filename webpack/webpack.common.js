@@ -91,7 +91,9 @@ module.exports = {
 			NODE_ENV: 'development', // значение по умолчанию 'development' если переменная process.env.NODE_ENV не передана
 		}),
 		new CopyWebpackPlugin({
-			patterns: [{ from: 'public/image', to: 'image' }, { from: 'public/video', to: 'video' }]
+			patterns: [
+				{ from: 'public/image', to: 'image' },
+				{ from: 'public/video', to: 'video' },]
 		  }),
 	],
 };

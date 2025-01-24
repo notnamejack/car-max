@@ -41,3 +41,22 @@ button {
 	border: none;
 	outline: none;
 }
+
+@font-face {
+	font-weight: 700;
+	font-family: 'Moula';
+	font-style: normal;
+	font-display: swap;
+	src: local('Moula-Bold'),
+		url('./fonts/Moula-Bold.woff2') format('woff2'),
+		url('./fonts/Moula-Bold.woff') format('woff');
+}
+@font-face {
+	font-weight: 600;
+	font-family: 'Moula';
+	font-style: normal;
+	font-display: swap;
+	src: local('Moula-SemiBold'),
+		url('./fonts/Moula-SemiBold.woff2') format('woff2'),
+		url('./fonts/Moula-SemiBold.woff') format('woff');
+}
