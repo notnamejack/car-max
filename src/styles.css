@@ -61,3 +61,12 @@ button {
 		url('./fonts/Moula-SemiBold.woff2') format('woff2'),
 		url('./fonts/Moula-SemiBold.woff') format('woff');
 }
+@font-face {
+	font-weight: 500;
+	font-family: 'Moula';
+	font-style: normal;
+	font-display: swap;
+	src: local('Moula-Medium'),
+		url('./fonts/Moula-Medium.woff2') format('woff2'),
+		url('./fonts/Moula-Medium.woff') format('woff');
+}

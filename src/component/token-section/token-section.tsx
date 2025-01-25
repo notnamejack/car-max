@@ -5,6 +5,7 @@ import left from './assets/left.png';
 import leftMin from './assets/left-min.png';
 import rigth from './assets/rigth.png';
 import rigthMin from './assets/rigth-min.png';
+import token from './assets/token.png';
 import { useEffect, useState } from 'react';
 
 interface ISection {
@@ -20,6 +21,7 @@ export function TokenSection({ scroll }: ISection) {
 	]);
 	const [activeNav, setActiveNav] = useState(0);
 	const [isMobile, setIsMobile] = useState(false);
+	const [speed, setSpeed] = useState<number>(-1);
 
 	useEffect(() => {
 		if (scroll <= 3200) {
@@ -33,11 +35,24 @@ export function TokenSection({ scroll }: ISection) {
 		}
 		if (scroll >= 4400) {
 			setActiveNav(3);
+			setSpeed(-1)
 		}
 		if (scroll >= 4800) {
 			setActiveNav(4);
+			setSpeed(0)
 		}
 	}, [scroll]);
+
+
+	useEffect(() => {
+		if(speed >= 0 && speed < 100){
+			const interval = setInterval(() => {
+				setSpeed(speed + 1);
+			}, 15);
+
+			return () => clearInterval(interval);
+		}
+    }, [speed]);
 
 
 	useEffect(() => {
@@ -54,15 +69,13 @@ export function TokenSection({ scroll }: ISection) {
 			setIsMobile(false);
 	}
 
-	console.log(scroll)
-
 	return (
 		<div className={s.container}>
 			<div className={s.body}>
 				<div className={s.nav}>
 					<ul>
 						{navItems.map((item, index) =>
-							<li className={`${index == activeNav && s.active}`}>
+							<li className={`${index == activeNav && s.active}`} key={item}>
 								<button onClick={() => setActiveNav(index)}>{item}</button>
 							</li>
 						)}
@@ -73,7 +86,7 @@ export function TokenSection({ scroll }: ISection) {
 					<div className={s.left}>
 						<img src={!isMobile ? left : leftMin} />
 					</div>
-					<div className={s.frame}>
+					{activeNav < 4 && <div className={s.frame}>
 						<div className={clsx(s.cascade)}>
 							<div className={clsx(s.cascade_main, activeNav > 0 && s.show)}>
 								<ul className={s.itemes}>
@@ -222,7 +235,7 @@ export function TokenSection({ scroll }: ISection) {
 														</ul>
 													</div>
 													<div className={s.cascade_doublee}>
-														<div className={clsx(s.cascade, activeNav > 3 && s.active)}>
+														<div className={clsx(s.cascade, activeNav > 3 && s.active)} style={{height: 706}}>
 															<div className={clsx(s.cascade_main, activeNav > 4 && s.show)}>
 
 															</div>
@@ -239,7 +252,23 @@ export function TokenSection({ scroll }: ISection) {
 
 							</div>
 						</div>
-					</div>
+					</div>}
+					{activeNav == 4 &&
+					<div className={s.tokenomics}>
+						{speed != 100 &&
+						<div className={s.start}>
+							<h3 className={s.title}>Tokenomics</h3>
+							<div className={s.speed}>
+								<h3>{speed}</h3>
+								<p>km/h</p>
+							</div>
+						</div>}
+						{speed == 100 &&
+							<div>
+								<img src={token}/>
+							</div>
+						}
+					</div>}
 					<div className={s.rigth}>
 						<img src={!isMobile ? rigth : rigthMin} />
 					</div>
