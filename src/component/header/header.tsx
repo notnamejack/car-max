@@ -103,7 +103,7 @@ export function Header() {
 
 				</div>
 			</div>
-			<div className={s.dop_menu}>
+			{open && <div className={s.dop_menu}>
 				<nav>
 					<ul>
 						<li>
@@ -123,7 +123,7 @@ export function Header() {
 						</li>
 					</ul>
 				</nav>
-			</div>
+			</div>}
 		</header>
 	);
 }

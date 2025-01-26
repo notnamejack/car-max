@@ -309,6 +309,8 @@ export function TokenSection({ scroll }: ISection) {
 						<img src={!isMobile ? rigth : rigthMin} />
 					</div>
 				</div>
+
+				<div className={s.backround}></div>
 			</div>
 			<div className={s.content}></div>
 		</div>

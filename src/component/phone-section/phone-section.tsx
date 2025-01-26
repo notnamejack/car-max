@@ -1,9 +1,11 @@
 
-import phoneImg from './assets/phone.png';
+import phoneImg from './assets/phone.webp';
 import one from './assets/one.jpg';
 import two from './assets/two.jpg';
 import tree from './assets/tree.jpg';
 import four from './assets/four.jpg';
+import backtound from './assets/backtound.webp';
+import backtoundMin from './assets/backtound-min.webp';
 import s from './phone-section.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
@@ -56,7 +58,8 @@ export function PhoneSection({ scroll }: ISection) {
 	return (
 		<div className={s.container} ref={ref}>
 			<div className={s.container_transform}>
-				<img src={!isMobile ? "./image/backtound.jpg" : "./image/backtound-min.jpg"} alt='fone' className={s.backtound} />
+
+				<div style={{backgroundImage: `url(${!isMobile ? backtound : backtoundMin})`}} className={s.backtound}></div>
 				<div className={s.body}>
 					<h2>REVOLUTION OF TELEGRAM GAMES</h2>
 					<ul>
