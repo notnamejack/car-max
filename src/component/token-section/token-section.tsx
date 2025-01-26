@@ -7,6 +7,7 @@ import rigth from './assets/rigth.png';
 import rigthMin from './assets/rigth-min.png';
 import token from './assets/token.png';
 import tokenMin from './assets/token-min.png';
+import { ReactComponent as Logo } from './assets/logo.svg';
 import { useEffect, useState } from 'react';
 
 interface ISection {
@@ -273,10 +274,33 @@ export function TokenSection({ scroll }: ISection) {
 							</div>
 							}
 							{speed == 100 &&
-								<div className={s.img_token}>
+								(!isMobile ?
+								(<div className={s.img_token}>
 									<div className={s.img} style={{backgroundImage: `url(${!isPad ? token : tokenMin})`}}></div>
 									<div className={s.glitch} style={{backgroundImage: `url(${!isPad ? token : tokenMin})`}}></div>
-								</div>
+								</div>)
+								:
+								(<div className={s.mobile_block}>
+									<Logo/>
+									<ul className={s.text_mobile}>
+										<li>
+											<h3>Liquidity</h3>
+											<p>5%</p>
+										</li>
+										<li>
+											<h3>team</h3>
+											<p>9%</p>
+										</li>
+										<li>
+											<h3>Game</h3>
+											<p>55%</p>
+										</li>
+										<li>
+											<h3>Marketing</h3>
+											<p>31%</p>
+										</li>
+									</ul>
+								</div>))
 							}
 						</div>}
 					</div>
