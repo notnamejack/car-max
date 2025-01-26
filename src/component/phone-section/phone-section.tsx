@@ -1,4 +1,3 @@
-
 import phoneImg from './assets/phone.webp';
 import one from './assets/one.jpg';
 import two from './assets/two.jpg';
@@ -15,12 +14,7 @@ interface ISection {
 }
 
 export function PhoneSection({ scroll }: ISection) {
-	const [navItems, setNavItems] = useState<string[]>([
-		'Play',
-		'Win',
-		'Upgrade',
-		'Earn',
-	]);
+	const navItems = ['Play', 'Win', 'Upgrade', 'Earn'];
 	const [activeNav, setActiveNav] = useState(0);
 	const [isMobile, setIsMobile] = useState(false);
 
@@ -34,11 +28,9 @@ export function PhoneSection({ scroll }: ISection) {
 	}, []);
 
 	const changeWigth = () => {
-		if(window.document.documentElement.clientWidth <= 375)
-			setIsMobile(true);
-		else
-			setIsMobile(false);
-	}
+		if (window.document.documentElement.clientWidth <= 375) setIsMobile(true);
+		else setIsMobile(false);
+	};
 
 	useEffect(() => {
 		if (scroll <= 1200) {
@@ -58,8 +50,11 @@ export function PhoneSection({ scroll }: ISection) {
 	return (
 		<div className={s.container} ref={ref}>
 			<div className={s.container_transform}>
-
-				<div style={{backgroundImage: `url(${!isMobile ? backtound : backtoundMin})`}} className={s.backtound}></div>
+				<div
+					style={{
+						backgroundImage: `url(${!isMobile ? backtound : backtoundMin})`,
+					}}
+					className={s.backtound}></div>
 				<div className={s.body}>
 					<h2>REVOLUTION OF TELEGRAM GAMES</h2>
 					<ul>
@@ -80,17 +75,18 @@ export function PhoneSection({ scroll }: ISection) {
 						<div className={s.pattern_items}>
 							<div className={s.cascade}>
 								<div className={s.cascade_main}>
-									<img src={one} />
+									<img src={one} alt='one' />
 								</div>
 								<div className={s.cascade_doublee}>
 									<div className={clsx(s.cascade, activeNav > 0 && s.active)}>
 										<div className={s.cascade_main}>
-											<img src={two} />
+											<img src={two} alt='two' />
 										</div>
 										<div className={s.cascade_doublee}>
-											<div className={clsx(s.cascade, activeNav > 1 && s.active)}>
+											<div
+												className={clsx(s.cascade, activeNav > 1 && s.active)}>
 												<div className={s.cascade_main}>
-													<img src={tree} />
+													<img src={tree} alt='tree' />
 												</div>
 												<div className={s.cascade_doublee}>
 													<div
@@ -99,7 +95,7 @@ export function PhoneSection({ scroll }: ISection) {
 															activeNav > 2 && s.active
 														)}>
 														<div className={s.cascade_main}>
-															<img src={four} />
+															<img src={four} alt='four' />
 														</div>
 														<div className={s.cascade_doublee}></div>
 													</div>
@@ -109,7 +105,7 @@ export function PhoneSection({ scroll }: ISection) {
 									</div>
 								</div>
 							</div>
-							<img src={phoneImg} className={s.pattern_phone} />
+							<img src={phoneImg} className={s.pattern_phone} alt='phone' />
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-import s from './main.module.scss';
 import {
 	Footer,
 	Header,

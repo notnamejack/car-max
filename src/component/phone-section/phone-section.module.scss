@@ -149,35 +149,34 @@
 	}
 }
 
-
-@media (max-width: 760px){
-	.container{
+@media (max-width: 760px) {
+	.container {
 		z-index: 100;
-		.container_transform{
-			.body{
+		.container_transform {
+			.body {
 				height: calc(100% - 130px);
 			}
-			.container_phone{
-				.phone{
+			.container_phone {
+				.phone {
 					justify-content: flex-end;
 					height: 642.196px;
-					.pattern_items{
-						.cascade{
+					.pattern_items {
+						.cascade {
 							height: 642.196px;
 							border-radius: 40px;
 							&.active {
 								transform: translateY(-642.196px);
 							}
-							.cascade_main{
+							.cascade_main {
 								height: 642.196px;
 								border-radius: 40px;
-								img{
+								img {
 									height: 642.196px;
 									border-radius: 40px;
 								}
 							}
 						}
-						.pattern_phone{
+						.pattern_phone {
 							top: -15.62px;
 							left: -83.93px;
 							height: 894px;
@@ -189,40 +188,40 @@
 	}
 }
 
-@media (max-width: 375px){
-	.container{
-		.container_transform{
-			.body{
+@media (max-width: 375px) {
+	.container {
+		.container_transform {
+			.body {
 				height: calc(100% - 120px);
-				h2{
+				h2 {
 					font-size: 32px;
 				}
-				ul li button{
+				ul li button {
 					height: 36px;
 					font-size: 14px;
 				}
 			}
-			.container_phone{
-				.phone{
+			.container_phone {
+				.phone {
 					justify-content: flex-end;
 					height: 640px;
-					.pattern_items{
-						.cascade{
+					.pattern_items {
+						.cascade {
 							height: 432.511px;
 							border-radius: 26px;
 							&.active {
 								transform: translateY(-432.511px);
 							}
-							.cascade_main{
+							.cascade_main {
 								height: 432.511px;
 								border-radius: 26px;
-								img{
+								img {
 									height: 432.511px;
 									border-radius: 26px;
 								}
 							}
 						}
-						.pattern_phone{
+						.pattern_phone {
 							top: -10.52px;
 							left: -56.53px;
 							height: 602.097px;

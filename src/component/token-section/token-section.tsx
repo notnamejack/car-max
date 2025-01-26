@@ -8,7 +8,6 @@ import rigthMin from './assets/rigth-min.png';
 import token from './assets/token.png';
 import tokenMin from './assets/token-min.png';
 import tokenMobile from './assets/token-mobile.png';
-import { ReactComponent as Logo } from './assets/logo.svg';
 import { useEffect, useState } from 'react';
 
 interface ISection {
@@ -16,12 +15,7 @@ interface ISection {
 }
 
 export function TokenSection({ scroll }: ISection) {
-	const [navItems, setNavItems] = useState<string[]>([
-		'q1',
-		'q2',
-		'q3',
-		'q4',
-	]);
+	const navItems = ['q1', 'q2', 'q3', 'q4'];
 	const [activeNav, setActiveNav] = useState(0);
 	const [isMobile, setIsMobile] = useState(false);
 	const [isPad, setIsPad] = useState(false);
@@ -39,26 +33,23 @@ export function TokenSection({ scroll }: ISection) {
 		}
 		if (scroll >= 4400 && scroll < 4800) {
 			setActiveNav(3);
-			setSpeed(-1)
+			setSpeed(-1);
 		}
 		if (scroll >= 4800) {
 			setActiveNav(4);
-			if(speed == -1)
-				setSpeed(0)
+			if (speed == -1) setSpeed(0);
 		}
 	}, [scroll]);
 
-
 	useEffect(() => {
-		if(speed >= 0 && speed < 100){
+		if (speed >= 0 && speed < 100) {
 			const interval = setInterval(() => {
 				setSpeed(speed + 1);
 			}, 15);
 
 			return () => clearInterval(interval);
 		}
-    }, [speed]);
-
+	}, [speed]);
 
 	useEffect(() => {
 		window.addEventListener('resize', changeWigth);
@@ -68,35 +59,31 @@ export function TokenSection({ scroll }: ISection) {
 	}, []);
 
 	const changeWigth = () => {
-		if(window.document.documentElement.clientWidth <= 760)
-			setIsPad(true);
-		else
-			setIsPad(false);
-		if(window.document.documentElement.clientWidth <= 375)
-			setIsMobile(true);
-		else
-			setIsMobile(false);
-	}
+		if (window.document.documentElement.clientWidth <= 760) setIsPad(true);
+		else setIsPad(false);
+		if (window.document.documentElement.clientWidth <= 375) setIsMobile(true);
+		else setIsMobile(false);
+	};
 
 	return (
 		<div className={s.container}>
 			<div className={s.body}>
 				<div className={clsx(s.nav, activeNav == 4 && s.active)}>
 					<ul>
-						{navItems.map((item, index) =>
+						{navItems.map((item, index) => (
 							<li className={`${index == activeNav && s.active}`} key={item}>
 								<button onClick={() => setActiveNav(index)}>{item}</button>
 							</li>
-						)}
+						))}
 					</ul>
 					<Top />
 				</div>
 				<div className={s.token}>
 					<div className={clsx(s.left, activeNav == 4 && s.active)}>
-						<img src={!isMobile ? left : leftMin} />
+						<img src={!isMobile ? left : leftMin} alt='line' />
 					</div>
 					<div className={s.frame}>
-						{activeNav < 4 &&
+						{activeNav < 4 && (
 							<div className={clsx(s.cascade)}>
 								<div className={clsx(s.cascade_main, activeNav > 0 && s.show)}>
 									<ul className={s.itemes}>
@@ -124,8 +111,8 @@ export function TokenSection({ scroll }: ISection) {
 										<li className={s.item}>
 											<h3>Карьерный режим</h3>
 											<p>
-												Добавление карьерного режима для вовлечения и долгосрочной
-												мотивации.
+												Добавление карьерного режима для вовлечения и
+												долгосрочной мотивации.
 											</p>
 										</li>
 										<li className={s.item}>
@@ -137,17 +124,22 @@ export function TokenSection({ scroll }: ISection) {
 										</li>
 										<li className={s.item}>
 											<h3>Маркетинговые функции</h3>
-											<p>Промо с партнёрами и механика с шансом 0,5% на призы.</p>
+											<p>
+												Промо с партнёрами и механика с шансом 0,5% на призы.
+											</p>
 										</li>
 									</ul>
 								</div>
 								<div className={s.cascade_doublee}>
 									<div className={clsx(s.cascade, activeNav > 0 && s.active)}>
-										<div className={clsx(s.cascade_main, activeNav > 1 && s.show)}>
+										<div
+											className={clsx(s.cascade_main, activeNav > 1 && s.show)}>
 											<ul className={s.itemes}>
 												<li className={s.item}>
 													<h3>Механика крипто-доната</h3>
-													<p>Добавить донат для покупки валюты и роста аккаунтов.</p>
+													<p>
+														Добавить донат для покупки валюты и роста аккаунтов.
+													</p>
 												</li>
 												<li className={s.item}>
 													<h3>Пересмотр механики</h3>
@@ -159,7 +151,8 @@ export function TokenSection({ scroll }: ISection) {
 												<li className={s.item}>
 													<h3>Масс-привлечение юзеров</h3>
 													<p>
-														Маркетинг + раздачи (AirDrop) для новых пользователей.
+														Маркетинг + раздачи (AirDrop) для новых
+														пользователей.
 													</p>
 												</li>
 												<li className={s.item}>
@@ -169,8 +162,8 @@ export function TokenSection({ scroll }: ISection) {
 												<li className={s.item}>
 													<h3>2-й инвестиционный раунд</h3>
 													<p>
-														Привлечение средств для развития игры, масштабирования и
-														новых возможностей.
+														Привлечение средств для развития игры,
+														масштабирования и новых возможностей.
 													</p>
 												</li>
 												<li className={s.item}>
@@ -180,28 +173,41 @@ export function TokenSection({ scroll }: ISection) {
 											</ul>
 										</div>
 										<div className={s.cascade_doublee}>
-											<div className={clsx(s.cascade, activeNav > 1 && s.active)}>
-												<div className={clsx(s.cascade_main, activeNav > 2 && s.show)}>
+											<div
+												className={clsx(s.cascade, activeNav > 1 && s.active)}>
+												<div
+													className={clsx(
+														s.cascade_main,
+														activeNav > 2 && s.show
+													)}>
 													<ul className={s.itemes}>
 														<li className={s.item}>
 															<h3>3D-модели автомобилей</h3>
-															<p>Переход на 3D для улучшения визуала и кастомизации.</p>
+															<p>
+																Переход на 3D для улучшения визуала и
+																кастомизации.
+															</p>
 														</li>
 														<li className={s.item}>
 															<h3>Функции кастомизации</h3>
 															<p>
-																Расширение возможностей для привлечения коллекционеров.
+																Расширение возможностей для привлечения
+																коллекционеров.
 															</p>
 														</li>
 														<li className={s.item}>
 															<h3>Реферальная программа</h3>
 															<p>
-																Внедрение 3-уровневой системы для органического роста.
+																Внедрение 3-уровневой системы для органического
+																роста.
 															</p>
 														</li>
 														<li className={s.item}>
 															<h3>Третья итерация</h3>
-															<p>Выпуск версии с улучшениями и новой кастомизацией.</p>
+															<p>
+																Выпуск версии с улучшениями и новой
+																кастомизацией.
+															</p>
 														</li>
 														<li className={s.item}>
 															<h3>Листинг токенов</h3>
@@ -220,38 +226,59 @@ export function TokenSection({ scroll }: ISection) {
 													</ul>
 												</div>
 												<div className={s.cascade_doublee}>
-													<div className={clsx(s.cascade, activeNav > 2 && s.active)}>
-														<div className={clsx(s.cascade_main, activeNav > 3 && s.show)}>
+													<div
+														className={clsx(
+															s.cascade,
+															activeNav > 2 && s.active
+														)}>
+														<div
+															className={clsx(
+																s.cascade_main,
+																activeNav > 3 && s.show
+															)}>
 															<ul className={clsx(s.itemes, s.item_four)}>
 																<li className={clsx(s.item)}>
 																	<h3>Удержание аудитории</h3>
 																	<p>
-																		Внедрить функции для интереса пользователей и создания
-																		экосистемы.
+																		Внедрить функции для интереса пользователей
+																		и создания экосистемы.
 																	</p>
 																</li>
 																<li className={s.item}>
 																	<h3>Торговля токенами</h3>
-																	<p>Разрешить обмен токенов внутри приложения.</p>
+																	<p>
+																		Разрешить обмен токенов внутри приложения.
+																	</p>
 																</li>
 																<li className={s.item}>
 																	<h3>Отчет для инвесторов</h3>
-																	<p>Показать достижения и потенциал CarMax за год.</p>
+																	<p>
+																		Показать достижения и потенциал CarMax за
+																		год.
+																	</p>
 																</li>
 																<li className={s.item}>
 																	<h3>Ремаркетинг</h3>
-																	<p>Запуск кампании для возврата ушедших пользователей.</p>
+																	<p>
+																		Запуск кампании для возврата ушедших
+																		пользователей.
+																	</p>
 																</li>
 															</ul>
 														</div>
 														<div className={s.cascade_doublee}>
-															<div className={clsx(s.cascade, activeNav > 3 && s.active)} style={{height: 706}}>
-																<div className={clsx(s.cascade_main, activeNav > 4 && s.show)}>
-
-																</div>
-																<div className={s.cascade_doublee}>
-
-																</div>
+															<div
+																className={clsx(
+																	s.cascade,
+																	activeNav > 3 && s.active
+																)}
+																style={{ height: 706 }}>
+																<div
+																	className={clsx(
+																		s.cascade_main,
+																		activeNav > 4 && s.show
+																	)}></div>
+																<div className={s.cascade_doublee}></div>
 															</div>
 														</div>
 													</div>
@@ -259,57 +286,79 @@ export function TokenSection({ scroll }: ISection) {
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
-						}
-						{activeNav == 4 &&
-						<div className={clsx(s.tokenomics, speed == 100 && s.active)}>
-							{speed != 100 &&
-							<div className={s.start}>
-								<h3 className={s.title}>Tokenomics</h3>
-								<div className={s.speed}>
-									<h3>{speed}</h3>
-									<p>km/h</p>
-								</div>
+						)}
+						{activeNav == 4 && (
+							<div className={clsx(s.tokenomics, speed == 100 && s.active)}>
+								{speed != 100 && (
+									<div className={s.start}>
+										<h3 className={s.title}>Tokenomics</h3>
+										<div className={s.speed}>
+											<h3>{speed}</h3>
+											<p>km/h</p>
+										</div>
+									</div>
+								)}
+								{
+									speed == 100 && (
+										// (!isMobile ?
+										// (
+										<div className={s.img_token}>
+											<div
+												className={s.img}
+												style={{
+													backgroundImage: `url(${
+														!isMobile
+															? !isPad
+																? token
+																: tokenMin
+															: tokenMobile
+													})`,
+												}}></div>
+											<div
+												className={s.glitch}
+												style={{
+													backgroundImage: `url(${
+														!isMobile
+															? !isPad
+																? token
+																: tokenMin
+															: tokenMobile
+													})`,
+												}}></div>
+										</div>
+									)
+									// )
+									// :
+									// (<div className={s.mobile_block}>
+									// 	<Logo/>
+									// 	<ul className={s.text_mobile}>
+									// 		<li>
+									// 			<h3>Liquidity</h3>
+									// 			<p>5%</p>
+									// 		</li>
+									// 		<li>
+									// 			<h3>team</h3>
+									// 			<p>9%</p>
+									// 		</li>
+									// 		<li>
+									// 			<h3>Game</h3>
+									// 			<p>55%</p>
+									// 		</li>
+									// 		<li>
+									// 			<h3>Marketing</h3>
+									// 			<p>31%</p>
+									// 		</li>
+									// 	</ul>
+									// </div>))
+								}
 							</div>
-							}
-							{speed == 100 &&
-								// (!isMobile ?
-								// (
-								<div className={s.img_token}>
-									<div className={s.img} style={{backgroundImage: `url(${!isMobile ? !isPad ? token : tokenMin : tokenMobile})`}}></div>
-									<div className={s.glitch} style={{backgroundImage: `url(${!isMobile ? !isPad ? token : tokenMin : tokenMobile})`}}></div>
-								</div>
-								// )
-								// :
-								// (<div className={s.mobile_block}>
-								// 	<Logo/>
-								// 	<ul className={s.text_mobile}>
-								// 		<li>
-								// 			<h3>Liquidity</h3>
-								// 			<p>5%</p>
-								// 		</li>
-								// 		<li>
-								// 			<h3>team</h3>
-								// 			<p>9%</p>
-								// 		</li>
-								// 		<li>
-								// 			<h3>Game</h3>
-								// 			<p>55%</p>
-								// 		</li>
-								// 		<li>
-								// 			<h3>Marketing</h3>
-								// 			<p>31%</p>
-								// 		</li>
-								// 	</ul>
-								// </div>))
-							}
-						</div>}
+						)}
 					</div>
 
 					<div className={clsx(s.rigth, activeNav == 4 && s.active)}>
-						<img src={!isMobile ? rigth : rigthMin} />
+						<img src={!isMobile ? rigth : rigthMin} alt='line' />
 					</div>
 				</div>
 

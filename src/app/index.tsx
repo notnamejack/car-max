@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-import s from './app.module.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Main } from '../pages';
 
