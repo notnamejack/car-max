@@ -39,16 +39,16 @@ export function PhoneSection({ scroll }: ISection) {
 	}
 
 	useEffect(() => {
-		if (scroll <= 1240) {
+		if (scroll <= 1200) {
 			setActiveNav(0);
 		}
-		if (scroll >= 1400) {
+		if (scroll >= 1300) {
 			setActiveNav(1);
 		}
 		if (scroll >= 1700) {
 			setActiveNav(2);
 		}
-		if (scroll >= 2000) {
+		if (scroll >= 2100) {
 			setActiveNav(3);
 		}
 	}, [scroll]);
