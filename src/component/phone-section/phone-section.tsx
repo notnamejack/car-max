@@ -47,6 +47,17 @@ export function PhoneSection({ scroll }: ISection) {
 		}
 	}, [scroll]);
 
+	const handlerToSckroll = (nav: number) => {
+		if(nav == 0)
+			window.scrollTo(0, 1200)
+		if(nav == 1)
+			window.scrollTo(0, 1300)
+		if(nav == 2)
+			window.scrollTo(0, 1700)
+		if(nav == 3)
+			window.scrollTo(0, 2100)
+	}
+
 	return (
 		<div className={s.container} ref={ref}>
 			<div className={s.container_transform}>
@@ -62,7 +73,7 @@ export function PhoneSection({ scroll }: ISection) {
 							<li key={`nav_${index}`}>
 								<button
 									className={`${index == activeNav && s.active}`}
-									onClick={() => setActiveNav(index)}>
+									onClick={() => handlerToSckroll(index)}>
 									{item}
 								</button>
 							</li>
