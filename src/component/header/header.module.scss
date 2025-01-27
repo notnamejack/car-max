@@ -58,7 +58,7 @@ header {
 	}
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
 	header {
 		.container {
 			width: calc(100% - 60px);
@@ -68,7 +68,7 @@ header {
 	}
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
 	header {
 		.container {
 			nav {

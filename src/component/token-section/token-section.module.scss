@@ -8,6 +8,7 @@
 	height: min-content;
 	z-index: 1;
 	background: #000;
+	scrollbar-width: none;
 	&::after {
 		position: absolute;
 		content: '';
@@ -25,7 +26,8 @@
 		height: 960px;
 		top: 50px;
 		position: sticky;
-		overflow-x: hidden;
+		overflow: hidden;
+
 		z-index: 10;
 		.nav {
 			position: relative;
@@ -83,6 +85,7 @@
 			display: flex;
 			align-items: center;
 			height: 710px;
+			scrollbar-width: none;
 			.left {
 				transform: translateX(200px);
 				transition: transform 0.3s;
@@ -535,7 +538,7 @@
 	}
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
 	.container {
 		.body {
 			top: 0;
@@ -660,7 +663,7 @@
 	}
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
 	.container {
 		.body {
 			top: 0;
@@ -776,7 +779,7 @@
 							justify-content: center;
 							height: 524px;
 							.itemes {
-								max-width: 375px;
+								max-width: 500px;
 								height: 524px;
 								flex-wrap: nowrap;
 								flex-direction: column;

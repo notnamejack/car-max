@@ -80,7 +80,7 @@ footer {
 	}
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
 	footer {
 		.container {
 			width: calc(100% - 80px);
@@ -89,7 +89,7 @@ footer {
 	}
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
 	footer {
 		.container {
 			width: calc(100% - 32px);

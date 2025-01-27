@@ -28,7 +28,7 @@ export function PhoneSection({ scroll }: ISection) {
 	}, []);
 
 	const changeWigth = () => {
-		if (window.document.documentElement.clientWidth <= 375) setIsMobile(true);
+		if (window.document.documentElement.clientWidth <= 500) setIsMobile(true);
 		else setIsMobile(false);
 	};
 

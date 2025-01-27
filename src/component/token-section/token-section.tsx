@@ -59,9 +59,9 @@ export function TokenSection({ scroll }: ISection) {
 	}, []);
 
 	const changeWigth = () => {
-		if (window.document.documentElement.clientWidth <= 760) setIsPad(true);
+		if (window.document.documentElement.clientWidth <= 1024) setIsPad(true);
 		else setIsPad(false);
-		if (window.document.documentElement.clientWidth <= 375) setIsMobile(true);
+		if (window.document.documentElement.clientWidth <= 500) setIsMobile(true);
 		else setIsMobile(false);
 	};
 
