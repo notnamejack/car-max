@@ -82,7 +82,7 @@ export function TokenSection({ scroll }: ISection) {
 					<div className={clsx(s.left, activeNav == 4 && s.active)}>
 						<img src={!isMobile ? left : leftMin} alt='line' />
 					</div>
-					<div className={s.frame}>
+					<div className={clsx(s.frame)}>
 						{activeNav < 4 && (
 							<div className={clsx(s.cascade)}>
 								<div className={clsx(s.cascade_main, activeNav > 0 && s.show)}>

@@ -668,6 +668,7 @@
 		.body {
 			top: 0;
 			height: 100vh;
+			width: 100%;
 			.nav {
 				width: 100%;
 				top: 40px;
@@ -689,23 +690,28 @@
 			.token {
 				position: relative;
 				flex-direction: column;
+				width: 100%;
 				.left {
 					position: absolute;
 					top: 0;
-					transform: translateY(-480px);
+					transform: translateY(-550px);
+					width: 100%;
 					&.active {
-						transform: translateY(-380px);
+						transform: translateY(-450px);
 					}
 					img {
+						width: 100%;
 						height: auto;
 					}
 				}
 				.rigth {
 					transform: translateY(-220px);
+					width: 100%;
 					&.active {
-						transform: translateY(-320px);
+						transform: translateY(-250px);
 					}
 					img {
+						width: 100%;
 						height: auto;
 					}
 				}
@@ -770,8 +776,12 @@
 				}
 				.frame {
 					padding-top: 100px;
+					&.frame_active{
+						padding-top: 150px;
+					}
 					.cascade {
 						height: 524px;
+						width: 365px;
 						&.active {
 							transform: translateY(-524px);
 						}

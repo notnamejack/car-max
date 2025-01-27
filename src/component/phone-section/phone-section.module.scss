@@ -17,7 +17,7 @@
 			bottom: 0;
 			left: 0;
 			width: 100%;
-			height: 1151px;
+			height: 115.1vh;
 			background-repeat: no-repeat;
 			background-size: cover;
 			z-index: 1;
@@ -28,13 +28,13 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: space-between;
-			padding: 40px 0;
-			height: calc(100% - 160px);
+			padding: 4vh 0;
+			height: calc(100% - 16vh);
 			z-index: 2;
 			h2 {
 				color: #fff;
 				font-family: Moula;
-				font-size: 60px;
+				font-size: 6vh;
 				font-style: normal;
 				font-weight: 700;
 				line-height: 100%; /* 60px */
@@ -84,16 +84,16 @@
 				flex-direction: column;
 				align-items: center;
 				padding-bottom: 160px;
-				width: 700px;
-				height: 700px;
+				width: 70vh;
+				height: 70vh;
 				.phone_blur {
 					position: absolute;
 					content: '';
 					top: 0;
 					left: 0;
-					width: 700px;
-					height: 700px;
-					border-radius: 700px;
+					width: 70vh;
+					height: 70vh;
+					border-radius: 70vh;
 					background: rgba(34, 247, 216, 0.3);
 					filter: blur(250px);
 					z-index: -1;
@@ -101,28 +101,28 @@
 				.pattern_items {
 					position: relative;
 					.cascade {
-						height: 658px;
+						height: 65.8vh;
 						overflow-x: auto;
 						scrollbar-width: none;
-						border-radius: 42px;
+						border-radius: 4.2vh;
 						transition: transform 0.5s;
 						&.active {
-							transform: translateY(-658px);
+							transform: translateY(-65.8vh);
 						}
 						.cascade_main {
-							height: 658px;
-							border-radius: 42px;
+							height: 65.8vh;
+							border-radius: 4.2vh;
 							img {
-								height: 658px;
-								border-radius: 42px;
+								height: 65.8vh;
+								border-radius: 4.2vh;
 							}
 						}
 					}
 					.pattern_phone {
 						position: absolute;
-						top: -16px;
-						left: -86px;
-						height: 916px;
+						top: -1.6vh;
+						left: -8.6vh;
+						height: 91.6vh;
 						object-position: center;
 						object-fit: cover;
 						z-index: -1;
@@ -159,27 +159,27 @@
 			.container_phone {
 				.phone {
 					justify-content: flex-end;
-					height: 642.196px;
+					height: 64.22vh;
 					.pattern_items {
 						.cascade {
-							height: 642.196px;
-							border-radius: 40px;
+							height: 64.22vh;
+							border-radius: 4vh;
 							&.active {
-								transform: translateY(-642.196px);
+								transform: translateY(-64.22vh);
 							}
 							.cascade_main {
-								height: 642.196px;
-								border-radius: 40px;
+								height: 64.22vh;
+								border-radius: 4vh;
 								img {
-									height: 642.196px;
-									border-radius: 40px;
+									height: 64.22vh;
+									border-radius: 4vh;
 								}
 							}
 						}
 						.pattern_phone {
-							top: -15.62px;
-							left: -83.93px;
-							height: 894px;
+							top: -1.562vh;
+							left: -8.393vh;
+							height: 89.4vh;
 						}
 					}
 				}
