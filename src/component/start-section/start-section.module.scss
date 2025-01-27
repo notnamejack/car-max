@@ -52,6 +52,9 @@
 			text-align: center;
 		}
 	}
+	.mobile {
+		display: none;
+	}
 }
 
 @media (max-width: 1024px) {
@@ -81,6 +84,26 @@
 			}
 			p {
 				font-size: 14px;
+			}
+		}
+		.mobile {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			.play {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				padding: 12px 20px;
+				background-color: #f9fafb;
+				border-radius: 16px;
+				color: #1c1c1c;
+				font-family: Inter;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: 150%; /* 21px */
+				text-decoration-line: none;
 			}
 		}
 	}

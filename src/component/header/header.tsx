@@ -111,7 +111,7 @@ export function Header() {
 						)}
 					</button>
 				</nav>
-				<div className={s.mobile}>
+				{/* <div className={s.mobile}>
 					<a className={s.play} href='#'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -138,7 +138,7 @@ export function Header() {
 						</svg>
 						Play now
 					</a>
-				</div>
+				</div> */}
 			</div>
 			{open && (
 				<div className={s.dop_menu}>

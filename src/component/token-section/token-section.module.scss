@@ -694,7 +694,7 @@
 				.left {
 					position: absolute;
 					top: 0;
-					transform: translateY(-550px);
+					transform: translateY(-500px);
 					width: 100%;
 					&.active {
 						transform: translateY(-450px);
@@ -708,7 +708,7 @@
 					transform: translateY(-220px);
 					width: 100%;
 					&.active {
-						transform: translateY(-250px);
+						transform: translateY(-300px);
 					}
 					img {
 						width: 100%;
