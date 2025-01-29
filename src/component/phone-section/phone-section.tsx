@@ -49,7 +49,7 @@ export function PhoneSection({ scroll }: ISection) {
 
 	const handlerToSckroll = (nav: number) => {
 		if(nav == 0)
-			window.scrollTo(0, 12000)
+			window.scrollTo(0, 1200)
 		if(nav == 1)
 			window.scrollTo(0, 1300)
 		if(nav == 2)

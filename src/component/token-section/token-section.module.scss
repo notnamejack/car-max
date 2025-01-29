@@ -9,15 +9,6 @@
 	z-index: 1;
 	background: #000;
 	scrollbar-width: none;
-	&::after {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		z-index: 100;
-	}
 	.body {
 		display: flex;
 		flex-direction: column;
@@ -50,6 +41,7 @@
 				z-index: 100;
 				li {
 					button {
+						position: relative;
 						cursor: pointer;
 						color: rgba(34, 247, 216, 0.7);
 						font-family: Moula;
@@ -58,6 +50,14 @@
 						font-weight: 600;
 						line-height: 87%; /* 22.62px */
 						text-transform: uppercase;
+						&::after{
+							position: absolute;
+							content: '';
+							top: -10px;
+							left: -10px;
+							width: calc(100% + 20px);
+							height: calc(100% + 20px);
+						}
 					}
 					&.active {
 						button {
@@ -86,11 +86,20 @@
 			align-items: center;
 			height: 710px;
 			scrollbar-width: none;
+			&::after {
+				position: absolute;
+				content: '';
+				bottom: -100px;
+				left: 0;
+				height: 80%;
+				width: 100%;
+				z-index: 100;
+			}
 			.left {
-				transform: translateX(200px);
+				transform: translate(200px, 10px);
 				transition: transform 0.3s;
 				&.active {
-					transform: translateX(620px);
+					transform: translate(750px, 10px) scale(.7);
 				}
 				img {
 					height: 713px;
@@ -98,10 +107,10 @@
 				}
 			}
 			.rigth {
-				transform: translateX(-200px);
+				transform: translate(-200px, 10px) ;
 				transition: transform 0.3s;
 				&.active {
-					transform: translateX(-620px);
+					transform: translate(-750px, 10px) scale(.7);
 				}
 				img {
 					height: 713px;
@@ -113,7 +122,7 @@
 				width: 706px;
 				height: 706px;
 				border-radius: 706px;
-				background: #000;
+				// background: #000;
 				z-index: 100;
 				&.active {
 					background-color: transparent;
@@ -128,8 +137,8 @@
 					flex-direction: column;
 					align-items: center;
 					justify-content: flex-start;
-					padding-top: 50px;
-					gap: 120px;
+					padding-top: 150px;
+					gap: 60px;
 					.title {
 						color: #22fcdd;
 						font-family: Moula;
@@ -167,6 +176,8 @@
 					left: -70px;
 					width: 1012px;
 					height: 866px;
+					transform: translateX(-25px) scale(.7);
+					z-index: 1000;
 					.img,
 					.glitch {
 						display: block;
@@ -181,6 +192,7 @@
 						left: 0;
 						right: 0;
 						bottom: 0;
+						transform: scale(.7);
 						-webkit-animation-duration: 2s;
 						animation-duration: 2s;
 						-webkit-animation-timing-function: linear;
@@ -538,7 +550,7 @@
 	}
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1040px) {
 	.container {
 		.body {
 			top: 0;
@@ -637,7 +649,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 100vh;
+		height: 100%;
 		width: 100%;
 		z-index: 1;
 		&::before {

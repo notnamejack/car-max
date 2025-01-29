@@ -22,24 +22,37 @@ export function TokenSection({ scroll }: ISection) {
 	const [speed, setSpeed] = useState<number>(-1);
 
 	useEffect(() => {
-		if (scroll <= 3200) {
+		if (scroll <= 3600) {
 			setActiveNav(0);
 		}
-		if (scroll >= 3600) {
+		if (scroll >= 3800) {
 			setActiveNav(1);
 		}
-		if (scroll >= 4000) {
+		if (scroll >= 4200) {
 			setActiveNav(2);
 		}
-		if (scroll >= 4400 && scroll < 4800) {
+		if (scroll >= 4600 && scroll < 5000) {
 			setActiveNav(3);
 			setSpeed(-1);
 		}
-		if (scroll >= 4800) {
+		if (scroll >= 5000) {
 			setActiveNav(4);
 			if (speed == -1) setSpeed(0);
 		}
 	}, [scroll]);
+
+	const handlerToSckroll = (nav: number) => {
+		if(nav == 0)
+			window.scrollTo(0, 3600)
+		if(nav == 1)
+			window.scrollTo(0, 3800)
+		if(nav == 2)
+			window.scrollTo(0, 4200)
+		if(nav == 3)
+			window.scrollTo(0, 4600)
+		if(nav == 4)
+			window.scrollTo(0, 5000)
+	}
 
 	useEffect(() => {
 		if (speed >= 0 && speed < 100) {
@@ -72,7 +85,7 @@ export function TokenSection({ scroll }: ISection) {
 					<ul>
 						{navItems.map((item, index) => (
 							<li className={`${index == activeNav && s.active}`} key={item}>
-								<button onClick={() => setActiveNav(index)}>{item}</button>
+								<button onClick={() => handlerToSckroll(index)}>{item}</button>
 							</li>
 						))}
 					</ul>
