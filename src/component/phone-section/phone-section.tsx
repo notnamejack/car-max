@@ -47,25 +47,29 @@ export function PhoneSection({ scroll }: ISection) {
 	};
 
 	useEffect(() => {
-		if (scroll <= 1200 && navClick != 1 && navClick != 2 && navClick != 3) {
+		if (scroll > 1000 && scroll < 1300
+			&& navClick != 1 && navClick != 2 && navClick != 3) {
 			setActiveNav(0);
 			setNavClick(-1)
 		}
-		if (scroll >= 1300 && navClick != 0 && navClick != 2 && navClick != 3) {
+		if (scroll > 1300 && scroll < 1700
+			 && navClick != 0 && navClick != 2 && navClick != 3) {
 			setActiveNav(1);
 			setNavClick(-1)
 		}
-		if (scroll >= 1700 && navClick != 0 && navClick != 1 && navClick != 3) {
+		if (scroll > 1700 && scroll < 2100 && navClick != 0 && navClick != 1 && navClick != 3) {
+			console.log(true)
+			console.log(navClick)
 			setActiveNav(2);
 			setNavClick(-1)
 		}
-		if (scroll >= 2100 && navClick != 0 && navClick != 1 && navClick != 2) {
+		if (scroll > 2100 && navClick != 0 && navClick != 1 && navClick != 2) {
 			setActiveNav(3);
 			setNavClick(-1)
 		}
 	}, [scroll]);
 
-
+	console.log(navscroll)
 	const handlerToSckroll = (nav: number) => {
 		if(nav == 0){
 			scrollObject.scrollTo(1100, options)
@@ -73,17 +77,17 @@ export function PhoneSection({ scroll }: ISection) {
 			setNavClick(0)
 		}
 		if(nav == 1){
-			scrollObject.scrollTo(1300, options)
+			scrollObject.scrollTo(1301, options)
 			setNavscroll(1300);
 			setNavClick(1)
 		}
 		if(nav == 2){
-			scrollObject.scrollTo(1700, options)
+			scrollObject.scrollTo(1701, options)
 			setNavscroll(1700);
 			setNavClick(2)
 		}
 		if(nav == 3){
-			scrollObject.scrollTo(2100, options)
+			scrollObject.scrollTo(2101, options)
 			setNavscroll(2100);
 			setNavClick(3)
 		}
@@ -119,17 +123,20 @@ export function PhoneSection({ scroll }: ISection) {
 								<div className={clsx(s.cascade_main)}>
 									<img src={one} alt='one' />
 								</div>
-								<div className={clsx(s.cascade_main, activeNav > 0 && s.active)}
-									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 1}vh` : `-${432.511 * 1}px`) : '0px'})`}}>
-									<img src={two} alt='two' />
+								<div className={clsx(s.cascade_main)}
+									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2)}vh` : `-${432.511}px`) : '0px'})`,
+									position: 'absolute', zIndex: 30}}>
+									<img src={four} alt='four' />
 								</div>
-								<div className={clsx(s.cascade_main, activeNav > 1 && s.active)}
-									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 2}vh` : `-${432.511 * 2}px`) : '0px'})`}}>
+								<div className={clsx(s.cascade_main)}
+									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2)}vh` : `-${432.511}px`) : '0px'})`,
+									position: 'absolute', zIndex: 20}}>
 									<img src={tree} alt='tree' />
 								</div>
-								<div className={clsx(s.cascade_main, activeNav > 2 && s.active)}
-									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 3}vh` : `-${432.511 * 3}px`) : '0px'})`}}>
-									<img src={four} alt='four' />
+								<div className={clsx(s.cascade_main)}
+									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2)}vh` : `-${432.511}px`) : '0px'})`,
+									position: 'absolute', zIndex: 10}}>
+									<img src={two} alt='two' />
 								</div>
 							</div>
 							<img src={phoneImg} className={s.pattern_phone} alt='phone' />
