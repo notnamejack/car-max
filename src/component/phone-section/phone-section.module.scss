@@ -101,17 +101,16 @@
 				.pattern_items {
 					position: relative;
 					.cascade {
+						position: relative;
 						height: 65.8vh;
 						overflow-x: auto;
 						scrollbar-width: none;
 						border-radius: 4.2vh;
-						transition: transform 0.5s;
-						&.active {
-							transform: translateY(-65.8vh);
-						}
 						.cascade_main {
 							height: 65.8vh;
 							border-radius: 4.2vh;
+							transition: transform 0.5s;
+
 							img {
 								height: 65.8vh;
 								border-radius: 4.2vh;
@@ -164,9 +163,9 @@
 						.cascade {
 							height: 64.22vh;
 							border-radius: 4vh;
-							&.active {
-								transform: translateY(-64.22vh);
-							}
+							// &.active {
+							// 	transform: translateY(-64.22vh);
+							// }
 							.cascade_main {
 								height: 64.22vh;
 								border-radius: 4vh;
@@ -209,9 +208,9 @@
 						.cascade {
 							height: 432.511px;
 							border-radius: 26px;
-							&.active {
-								transform: translateY(-432.511px);
-							}
+							// &.active {
+							// 	transform: translateY(-432.511px);
+							// }
 							.cascade_main {
 								height: 432.511px;
 								border-radius: 26px;

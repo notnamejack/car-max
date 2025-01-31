@@ -22,7 +22,7 @@ export function TokenSection({ scroll }: ISection) {
 	const [speed, setSpeed] = useState<number>(-1);
 
 	useEffect(() => {
-		if (scroll <= 3600) {
+		if (scroll <= 3700) {
 			setActiveNav(0);
 		}
 		if (scroll >= 3800) {
@@ -43,7 +43,7 @@ export function TokenSection({ scroll }: ISection) {
 
 	const handlerToSckroll = (nav: number) => {
 		if(nav == 0)
-			window.scrollTo(0, 3600)
+			window.scrollTo(0, 3700)
 		if(nav == 1)
 			window.scrollTo(0, 3800)
 		if(nav == 2)

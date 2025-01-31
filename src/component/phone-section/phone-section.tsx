@@ -7,15 +7,27 @@ import backtound from './assets/backtound.webp';
 import backtoundMin from './assets/backtound-min.webp';
 import s from './phone-section.module.scss';
 import { useEffect, useRef, useState } from 'react';
+import Scroll from 'react-scroll';
 import clsx from 'clsx';
 
 interface ISection {
 	scroll: number;
 }
 
+var scrollObject = Scroll.animateScroll;
+
+const options = {
+	duration: 300,
+	smooth: true,
+  };
+
 export function PhoneSection({ scroll }: ISection) {
 	const navItems = ['Play', 'Win', 'Upgrade', 'Earn'];
 	const [activeNav, setActiveNav] = useState(0);
+	const [navClick, setNavClick] = useState(-1);
+	const [navscroll, setNavscroll] = useState(-1);
+	const [activeScrool, setActiveScrool] = useState(0);
+	const [isPad, setIsPad] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
 	const ref = useRef<HTMLDivElement>(null);
@@ -28,34 +40,44 @@ export function PhoneSection({ scroll }: ISection) {
 	}, []);
 
 	const changeWigth = () => {
+		if (window.document.documentElement.clientWidth <= 1024) setIsPad(true);
+		else setIsPad(false);
 		if (window.document.documentElement.clientWidth <= 500) setIsMobile(true);
 		else setIsMobile(false);
 	};
 
 	useEffect(() => {
-		if (scroll <= 1200) {
+		if (scroll <= 1200 && (navClick != activeNav)) {
 			setActiveNav(0);
 		}
-		if (scroll >= 1300) {
+		if (scroll >= 1300 && (navClick != activeNav)) {
 			setActiveNav(1);
 		}
-		if (scroll >= 1700) {
+		if (scroll >= 1700 && (navClick != activeNav)) {
 			setActiveNav(2);
 		}
-		if (scroll >= 2100) {
+		if (scroll >= 2100 && (navClick != activeNav)) {
 			setActiveNav(3);
 		}
 	}, [scroll]);
 
 	const handlerToSckroll = (nav: number) => {
-		if(nav == 0)
-			window.scrollTo(0, 1200)
-		if(nav == 1)
-			window.scrollTo(0, 1300)
-		if(nav == 2)
-			window.scrollTo(0, 1700)
-		if(nav == 3)
-			window.scrollTo(0, 2100)
+		if(nav == 0){
+			scrollObject.scrollTo(1100, options)
+			setNavscroll(1100);
+		}
+		if(nav == 1){
+			scrollObject.scrollTo(1300, options)
+			setNavscroll(1300);
+		}
+		if(nav == 2){
+			scrollObject.scrollTo(1700, options)
+			setNavscroll(1700);
+		}
+		if(nav == 3){
+			scrollObject.scrollTo(2100, options)
+			setNavscroll(2100);
+		}
 	}
 
 	return (
@@ -85,35 +107,20 @@ export function PhoneSection({ scroll }: ISection) {
 						<div className={s.phone_blur}></div>
 						<div className={s.pattern_items}>
 							<div className={s.cascade}>
-								<div className={s.cascade_main}>
+								<div className={clsx(s.cascade_main)}>
 									<img src={one} alt='one' />
 								</div>
-								<div className={s.cascade_doublee}>
-									<div className={clsx(s.cascade, activeNav > 0 && s.active)}>
-										<div className={s.cascade_main}>
-											<img src={two} alt='two' />
-										</div>
-										<div className={s.cascade_doublee}>
-											<div
-												className={clsx(s.cascade, activeNav > 1 && s.active)}>
-												<div className={s.cascade_main}>
-													<img src={tree} alt='tree' />
-												</div>
-												<div className={s.cascade_doublee}>
-													<div
-														className={clsx(
-															s.cascade,
-															activeNav > 2 && s.active
-														)}>
-														<div className={s.cascade_main}>
-															<img src={four} alt='four' />
-														</div>
-														<div className={s.cascade_doublee}></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+								<div className={clsx(s.cascade_main, activeNav > 0 && s.active)}
+									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 1}vh` : `-${432.511 * 1}px`) : '0vh'})`}}>
+									<img src={two} alt='two' />
+								</div>
+								<div className={clsx(s.cascade_main, activeNav > 1 && s.active)}
+									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 2}vh` : `-${432.511 * 2}px`) : '0vh'})`}}>
+									<img src={tree} alt='tree' />
+								</div>
+								<div className={clsx(s.cascade_main, activeNav > 2 && s.active)}
+									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 3}vh` : `-${432.511 * 3}px`) : '0vh'})`}}>
+									<img src={four} alt='four' />
 								</div>
 							</div>
 							<img src={phoneImg} className={s.pattern_phone} alt='phone' />
