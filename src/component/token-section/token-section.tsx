@@ -9,49 +9,80 @@ import token from './assets/token.png';
 import tokenMin from './assets/token-min.png';
 import tokenMobile from './assets/token-mobile.png';
 import { useEffect, useState } from 'react';
+import Scroll from 'react-scroll';
 
 interface ISection {
 	scroll: number;
 }
 
+var scrollObject = Scroll.animateScroll;
+
+const options = {
+	duration: 300,
+	smooth: true,
+};
+
 export function TokenSection({ scroll }: ISection) {
 	const navItems = ['q1', 'q2', 'q3', 'q4'];
 	const [activeNav, setActiveNav] = useState(0);
+	const [navClick, setNavClick] = useState(-1);
 	const [isMobile, setIsMobile] = useState(false);
 	const [isPad, setIsPad] = useState(false);
 	const [speed, setSpeed] = useState<number>(-1);
 
 	useEffect(() => {
-		if (scroll <= 3700) {
+		if (scroll > 3600 && scroll < 3800
+			&& navClick != 1 && navClick != 2 && navClick != 3 && navClick != 4) {
 			setActiveNav(0);
+			setNavClick(-1)
 		}
-		if (scroll >= 3800) {
+		if (scroll > 3800 && scroll < 4200
+			&& navClick != 0 && navClick != 2 && navClick != 3 && navClick != 4) {
 			setActiveNav(1);
+			setNavClick(-1)
 		}
-		if (scroll >= 4200) {
+		if (scroll > 4200 && scroll < 4600
+			&& navClick != 0 && navClick != 1 && navClick != 3 && navClick != 4) {
 			setActiveNav(2);
+			setNavClick(-1)
 		}
-		if (scroll >= 4600 && scroll < 5000) {
+		if (scroll > 4600 && scroll < 5000
+			&& navClick != 0 && navClick != 1 && navClick != 2 && navClick != 4
+		) {
 			setActiveNav(3);
+			setNavClick(-1)
 			setSpeed(-1);
 		}
-		if (scroll >= 5000) {
+		if (scroll >= 5000
+			&& navClick != 0 && navClick != 1 && navClick != 2 && navClick != 3
+		) {
 			setActiveNav(4);
+			setNavClick(-1)
 			if (speed == -1) setSpeed(0);
 		}
 	}, [scroll]);
 
 	const handlerToSckroll = (nav: number) => {
-		if(nav == 0)
-			window.scrollTo(0, 3700)
-		if(nav == 1)
-			window.scrollTo(0, 3800)
-		if(nav == 2)
-			window.scrollTo(0, 4200)
-		if(nav == 3)
-			window.scrollTo(0, 4600)
-		if(nav == 4)
-			window.scrollTo(0, 5000)
+		if(nav == 0){
+			scrollObject.scrollTo(3601, options)
+			setNavClick(0)
+		}
+		if(nav == 1){
+			scrollObject.scrollTo(3801, options)
+			setNavClick(1)
+		}
+		if(nav == 2){
+			scrollObject.scrollTo(4201, options)
+			setNavClick(2)
+		}
+		if(nav == 3){
+			scrollObject.scrollTo(4601, options)
+			setNavClick(3)
+		}
+		if(nav == 4){
+			scrollObject.scrollTo(5001, options)
+			setNavClick(3)
+		}
 	}
 
 	useEffect(() => {
@@ -143,163 +174,127 @@ export function TokenSection({ scroll }: ISection) {
 										</li>
 									</ul>
 								</div>
-								<div className={s.cascade_doublee}>
-									<div className={clsx(s.cascade, activeNav > 0 && s.active)}>
-										<div
-											className={clsx(s.cascade_main, activeNav > 1 && s.show)}>
-											<ul className={s.itemes}>
-												<li className={s.item}>
-													<h3>Механика крипто-доната</h3>
-													<p>
-														Добавить донат для покупки валюты и роста аккаунтов.
-													</p>
-												</li>
-												<li className={s.item}>
-													<h3>Пересмотр механики</h3>
-													<p>
-														Проработка поведения и управления для максимальной
-														реалистичности.
-													</p>
-												</li>
-												<li className={s.item}>
-													<h3>Масс-привлечение юзеров</h3>
-													<p>
-														Маркетинг + раздачи (AirDrop) для новых
-														пользователей.
-													</p>
-												</li>
-												<li className={s.item}>
-													<h3>Режим турнира</h3>
-													<p>Привлечь аудиторию конкурентов через турнир.</p>
-												</li>
-												<li className={s.item}>
-													<h3>2-й инвестиционный раунд</h3>
-													<p>
-														Привлечение средств для развития игры,
-														масштабирования и новых возможностей.
-													</p>
-												</li>
-												<li className={s.item}>
-													<h3>Улучшение UX и токеномики</h3>
-													<p>Доработать интерфейс и токеномику по фидбэку.</p>
-												</li>
-											</ul>
-										</div>
-										<div className={s.cascade_doublee}>
-											<div
-												className={clsx(s.cascade, activeNav > 1 && s.active)}>
-												<div
-													className={clsx(
-														s.cascade_main,
-														activeNav > 2 && s.show
-													)}>
-													<ul className={s.itemes}>
-														<li className={s.item}>
-															<h3>3D-модели автомобилей</h3>
-															<p>
-																Переход на 3D для улучшения визуала и
-																кастомизации.
-															</p>
-														</li>
-														<li className={s.item}>
-															<h3>Функции кастомизации</h3>
-															<p>
-																Расширение возможностей для привлечения
-																коллекционеров.
-															</p>
-														</li>
-														<li className={s.item}>
-															<h3>Реферальная программа</h3>
-															<p>
-																Внедрение 3-уровневой системы для органического
-																роста.
-															</p>
-														</li>
-														<li className={s.item}>
-															<h3>Третья итерация</h3>
-															<p>
-																Выпуск версии с улучшениями и новой
-																кастомизацией.
-															</p>
-														</li>
-														<li className={s.item}>
-															<h3>Листинг токенов</h3>
-															<p>
-																Размещение токенов на платформах для повышения
-																доступности.
-															</p>
-														</li>
-														<li className={s.item}>
-															<h3>Удержание аудитории</h3>
-															<p>
-																Разработка механик для долгосрочного вовлечения
-																пользователей.
-															</p>
-														</li>
-													</ul>
-												</div>
-												<div className={s.cascade_doublee}>
-													<div
-														className={clsx(
-															s.cascade,
-															activeNav > 2 && s.active
-														)}>
-														<div
-															className={clsx(
-																s.cascade_main,
-																activeNav > 3 && s.show
-															)}>
-															<ul className={clsx(s.itemes, s.item_four)}>
-																<li className={clsx(s.item)}>
-																	<h3>Удержание аудитории</h3>
-																	<p>
-																		Внедрить функции для интереса пользователей
-																		и создания экосистемы.
-																	</p>
-																</li>
-																<li className={s.item}>
-																	<h3>Торговля токенами</h3>
-																	<p>
-																		Разрешить обмен токенов внутри приложения.
-																	</p>
-																</li>
-																<li className={s.item}>
-																	<h3>Отчет для инвесторов</h3>
-																	<p>
-																		Показать достижения и потенциал CarMax за
-																		год.
-																	</p>
-																</li>
-																<li className={s.item}>
-																	<h3>Ремаркетинг</h3>
-																	<p>
-																		Запуск кампании для возврата ушедших
-																		пользователей.
-																	</p>
-																</li>
-															</ul>
-														</div>
-														<div className={s.cascade_doublee}>
-															<div
-																className={clsx(
-																	s.cascade,
-																	activeNav > 3 && s.active
-																)}
-																style={{ height: 706 }}>
-																<div
-																	className={clsx(
-																		s.cascade_main,
-																		activeNav > 4 && s.show
-																	)}></div>
-																<div className={s.cascade_doublee}></div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+								<div className={clsx(s.cascade_main, activeNav > 1 && s.show)}
+									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}>
+									<ul className={s.itemes}>
+										<li className={s.item}>
+											<h3>Механика крипто-доната</h3>
+											<p>
+												Добавить донат для покупки валюты и роста аккаунтов.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Пересмотр механики</h3>
+											<p>
+												Проработка поведения и управления для максимальной
+												реалистичности.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Масс-привлечение юзеров</h3>
+											<p>
+												Маркетинг + раздачи (AirDrop) для новых
+												пользователей.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Режим турнира</h3>
+											<p>Привлечь аудиторию конкурентов через турнир.</p>
+										</li>
+										<li className={s.item}>
+											<h3>2-й инвестиционный раунд</h3>
+											<p>
+												Привлечение средств для развития игры,
+												масштабирования и новых возможностей.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Улучшение UX и токеномики</h3>
+											<p>Доработать интерфейс и токеномику по фидбэку.</p>
+										</li>
+									</ul>
 								</div>
+								<div className={clsx( s.cascade_main, activeNav > 2 && s.show)}
+									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}>
+									<ul className={s.itemes}>
+										<li className={s.item}>
+											<h3>3D-модели автомобилей</h3>
+											<p>
+												Переход на 3D для улучшения визуала и
+												кастомизации.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Функции кастомизации</h3>
+											<p>
+												Расширение возможностей для привлечения
+												коллекционеров.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Реферальная программа</h3>
+											<p>
+												Внедрение 3-уровневой системы для органического
+												роста.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Третья итерация</h3>
+											<p>
+												Выпуск версии с улучшениями и новой
+												кастомизацией.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Листинг токенов</h3>
+											<p>
+												Размещение токенов на платформах для повышения
+												доступности.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Удержание аудитории</h3>
+											<p>
+												Разработка механик для долгосрочного вовлечения
+												пользователей.
+											</p>
+										</li>
+									</ul>
+								</div>
+								<div className={clsx( s.cascade_main, activeNav > 3 && s.show)}
+									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}>
+									<ul className={clsx(s.itemes, s.item_four)}>
+										<li className={clsx(s.item)}>
+											<h3>Удержание аудитории</h3>
+											<p>
+												Внедрить функции для интереса пользователей
+												и создания экосистемы.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Торговля токенами</h3>
+											<p>
+												Разрешить обмен токенов внутри приложения.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Отчет для инвесторов</h3>
+											<p>
+												Показать достижения и потенциал CarMax за
+												год.
+											</p>
+										</li>
+										<li className={s.item}>
+											<h3>Ремаркетинг</h3>
+											<p>
+												Запуск кампании для возврата ушедших
+												пользователей.
+											</p>
+										</li>
+									</ul>
+								</div>
+								<div className={clsx( s.cascade_main, activeNav > 4 && s.show)}
+									style={{transform: `translateY(${activeNav > 3 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}></div>
 							</div>
 						)}
 						{activeNav == 4 && (
@@ -315,8 +310,6 @@ export function TokenSection({ scroll }: ISection) {
 								)}
 								{
 									speed == 100 && (
-										// (!isMobile ?
-										// (
 										<div className={s.img_token}>
 											<div
 												className={s.img}
@@ -342,29 +335,6 @@ export function TokenSection({ scroll }: ISection) {
 												}}></div>
 										</div>
 									)
-									// )
-									// :
-									// (<div className={s.mobile_block}>
-									// 	<Logo/>
-									// 	<ul className={s.text_mobile}>
-									// 		<li>
-									// 			<h3>Liquidity</h3>
-									// 			<p>5%</p>
-									// 		</li>
-									// 		<li>
-									// 			<h3>team</h3>
-									// 			<p>9%</p>
-									// 		</li>
-									// 		<li>
-									// 			<h3>Game</h3>
-									// 			<p>55%</p>
-									// 		</li>
-									// 		<li>
-									// 			<h3>Marketing</h3>
-									// 			<p>31%</p>
-									// 		</li>
-									// 	</ul>
-									// </div>))
 								}
 							</div>
 						)}

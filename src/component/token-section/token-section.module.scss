@@ -213,31 +213,34 @@
 				width: 1240px;
 				height: 713px;
 				.cascade {
-					height: 264px;
+					position: relative;
+					height: 100%;
 					width: 1240px;
 					overflow-x: hidden;
 					scrollbar-width: none;
 					transition: transform 0.5s;
-					&.active {
-						transform: translateY(-264px);
-					}
 					.cascade_main {
 						position: relative;
 						transition: transform 1s, opacity 0.3s;
 						display: flex;
 						flex-direction: column;
 						align-items: center;
+						justify-content: center;
 						overflow: hidden;
+						width: 100%;
+						height: 100%;
+						transition: transform 0.5s;
 						&.show {
-							opacity: 0;
-							transform: scale(0);
+							display: none;
+							transform: scale(0) !important;
+							position: absolute;
+							z-index: -1;
 						}
 						.itemes {
 							display: flex;
 							align-items: center;
 							justify-content: center;
 							flex-wrap: wrap;
-							height: 264px;
 							width: 1240px;
 							gap: 90px 50px;
 							overflow: hidden;
@@ -249,7 +252,6 @@
 								flex-direction: column;
 								align-items: flex-start;
 								gap: 8px;
-								margin-bottom: auto;
 								max-width: 380px;
 								h3 {
 									color: #fff;
@@ -613,9 +615,9 @@
 					.cascade {
 						width: 100%;
 						height: 550px;
-						&.active {
-							transform: translateY(-550px);
-						}
+						// &.active {
+						// 	transform: translateY(-550px);
+						// }
 						.cascade_main {
 							justify-content: center;
 							height: 550px;

@@ -19,14 +19,12 @@ var scrollObject = Scroll.animateScroll;
 const options = {
 	duration: 300,
 	smooth: true,
-  };
+};
 
 export function PhoneSection({ scroll }: ISection) {
 	const navItems = ['Play', 'Win', 'Upgrade', 'Earn'];
 	const [activeNav, setActiveNav] = useState(0);
 	const [navClick, setNavClick] = useState(-1);
-	const [navscroll, setNavscroll] = useState(-1);
-	const [activeScrool, setActiveScrool] = useState(0);
 	const [isPad, setIsPad] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
@@ -57,38 +55,35 @@ export function PhoneSection({ scroll }: ISection) {
 			setActiveNav(1);
 			setNavClick(-1)
 		}
-		if (scroll > 1700 && scroll < 2100 && navClick != 0 && navClick != 1 && navClick != 3) {
+		if (scroll > 1700 && scroll < 2100
+			&& navClick != 0 && navClick != 1 && navClick != 3) {
 			console.log(true)
 			console.log(navClick)
 			setActiveNav(2);
 			setNavClick(-1)
 		}
-		if (scroll > 2100 && navClick != 0 && navClick != 1 && navClick != 2) {
+		if (scroll > 2100
+			&& navClick != 0 && navClick != 1 && navClick != 2) {
 			setActiveNav(3);
 			setNavClick(-1)
 		}
 	}, [scroll]);
 
-	console.log(navscroll)
 	const handlerToSckroll = (nav: number) => {
 		if(nav == 0){
 			scrollObject.scrollTo(1100, options)
-			setNavscroll(1100);
 			setNavClick(0)
 		}
 		if(nav == 1){
 			scrollObject.scrollTo(1301, options)
-			setNavscroll(1300);
 			setNavClick(1)
 		}
 		if(nav == 2){
 			scrollObject.scrollTo(1701, options)
-			setNavscroll(1700);
 			setNavClick(2)
 		}
 		if(nav == 3){
 			scrollObject.scrollTo(2101, options)
-			setNavscroll(2100);
 			setNavClick(3)
 		}
 	}
