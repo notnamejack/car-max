@@ -111,15 +111,15 @@ export function PhoneSection({ scroll }: ISection) {
 									<img src={one} alt='one' />
 								</div>
 								<div className={clsx(s.cascade_main, activeNav > 0 && s.active)}
-									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 1}vh` : `-${432.511 * 1}px`) : '0vh'})`}}>
+									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 1}vh` : `-${432.511 * 1}px`) : '0px'})`}}>
 									<img src={two} alt='two' />
 								</div>
 								<div className={clsx(s.cascade_main, activeNav > 1 && s.active)}
-									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 2}vh` : `-${432.511 * 2}px`) : '0vh'})`}}>
+									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 2}vh` : `-${432.511 * 2}px`) : '0px'})`}}>
 									<img src={tree} alt='tree' />
 								</div>
 								<div className={clsx(s.cascade_main, activeNav > 2 && s.active)}
-									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 3}vh` : `-${432.511 * 3}px`) : '0vh'})`}}>
+									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 65.8 : 64.2) * 3}vh` : `-${432.511 * 3}px`) : '0px'})`}}>
 									<img src={four} alt='four' />
 								</div>
 							</div>
