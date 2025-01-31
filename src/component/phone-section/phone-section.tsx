@@ -47,36 +47,45 @@ export function PhoneSection({ scroll }: ISection) {
 	};
 
 	useEffect(() => {
-		if (scroll <= 1200 && (navClick != activeNav)) {
+		if (scroll <= 1200 && navClick != 1 && navClick != 2 && navClick != 3) {
 			setActiveNav(0);
+			setNavClick(-1)
 		}
-		if (scroll >= 1300 && (navClick != activeNav)) {
+		if (scroll >= 1300 && navClick != 0 && navClick != 2 && navClick != 3) {
 			setActiveNav(1);
+			setNavClick(-1)
 		}
-		if (scroll >= 1700 && (navClick != activeNav)) {
+		if (scroll >= 1700 && navClick != 0 && navClick != 1 && navClick != 3) {
 			setActiveNav(2);
+			setNavClick(-1)
 		}
-		if (scroll >= 2100 && (navClick != activeNav)) {
+		if (scroll >= 2100 && navClick != 0 && navClick != 1 && navClick != 2) {
 			setActiveNav(3);
+			setNavClick(-1)
 		}
 	}, [scroll]);
+
 
 	const handlerToSckroll = (nav: number) => {
 		if(nav == 0){
 			scrollObject.scrollTo(1100, options)
 			setNavscroll(1100);
+			setNavClick(0)
 		}
 		if(nav == 1){
 			scrollObject.scrollTo(1300, options)
 			setNavscroll(1300);
+			setNavClick(1)
 		}
 		if(nav == 2){
 			scrollObject.scrollTo(1700, options)
 			setNavscroll(1700);
+			setNavClick(2)
 		}
 		if(nav == 3){
 			scrollObject.scrollTo(2100, options)
 			setNavscroll(2100);
+			setNavClick(3)
 		}
 	}
 
