@@ -183,6 +183,7 @@
 						display: block;
 						background-repeat: no-repeat;
 						background-size: cover;
+						background-position: center;
 						width: 100%;
 						height: 100%;
 					}
@@ -211,17 +212,16 @@
 				justify-content: center;
 				align-items: center;
 				width: 1240px;
-				height: 713px;
+				height: 71.3vh;
 				.cascade {
 					position: relative;
-					height: 100%;
+					height: 71.3vh;
 					width: 1240px;
 					overflow-x: hidden;
 					scrollbar-width: none;
 					transition: transform 0.5s;
 					.cascade_main {
 						position: relative;
-						transition: transform 1s, opacity 0.3s;
 						display: flex;
 						flex-direction: column;
 						align-items: center;
@@ -229,12 +229,18 @@
 						overflow: hidden;
 						width: 100%;
 						height: 100%;
-						transition: transform 0.5s;
+						// transition: transform 0.5s, position .5s, opacity .5s;
+						transition: transform 1s, opacity 0.3s, position .1s;
+						// transform: translateY(26.4vh);
 						&.show {
-							display: none;
-							transform: scale(0) !important;
-							position: absolute;
-							z-index: -1;
+							.itemes{
+								opacity: 0;
+								transform: scale(0);
+								.item{
+									opacity: 0;
+									transform: scale(0);
+								}
+							}
 						}
 						.itemes {
 							display: flex;
@@ -244,6 +250,7 @@
 							width: 1240px;
 							gap: 90px 50px;
 							overflow: hidden;
+							transition: transform 1s, opacity 0.3s, position .1s;
 							&.item_four {
 								width: calc(1240px - 380px);
 							}
@@ -253,6 +260,7 @@
 								align-items: flex-start;
 								gap: 8px;
 								max-width: 380px;
+								transition: transform 1s, opacity 0.3s, position .1s;
 								h3 {
 									color: #fff;
 									font-family: Moula;
@@ -571,9 +579,9 @@
 				.left {
 					position: absolute;
 					top: 0;
-					transform: rotate(90deg) translateX(-400px) scale(0.75);
+					transform: rotate(90deg) translateX(-500px) scale(1.2);
 					&.active {
-						transform: rotate(90deg) translateX(-220px) scale(0.75);
+						transform: rotate(90deg) translateX(-250px) scale(0.75);
 					}
 					img {
 						height: 713px;
@@ -581,7 +589,7 @@
 					}
 				}
 				.rigth {
-					transform: rotate(90deg) translateX(-100px) scale(0.75);
+					transform: rotate(90deg) translateX(-50px) scale(1.2);
 					&.active {
 						transform: rotate(90deg) translateX(-260px) scale(0.75);
 					}
@@ -610,17 +618,17 @@
 				}
 				.frame {
 					flex-direction: column;
-					padding-top: 240px;
+					padding-top: 200px;
 					width: 100%;
 					.cascade {
 						width: 100%;
-						height: 550px;
+						height: 60vh;
 						// &.active {
 						// 	transform: translateY(-550px);
 						// }
 						.cascade_main {
 							justify-content: center;
-							height: 550px;
+							height: 100%;
 							.itemes {
 								width: 680px;
 								height: 550px;
@@ -631,6 +639,7 @@
 								}
 								.item {
 									width: 320px;
+									margin-bottom: auto;
 									h3 {
 										font-size: 26px;
 										font-style: normal;
@@ -705,6 +714,9 @@
 				position: relative;
 				flex-direction: column;
 				width: 100%;
+				&::after {
+					height: 100%;
+				}
 				.left {
 					position: absolute;
 					top: 0;
@@ -738,13 +750,14 @@
 						top: 0;
 						left: 0;
 						width: 100%;
-						height: 250px;
+						height: 270px;
 						transform: scale(1);
 					}
 					.start {
 						padding-top: 50px;
 						height: calc(100% - 20px);
 						gap: 20px;
+						transform: scale(.7);
 					}
 					.mobile_block {
 						display: flex;
@@ -813,6 +826,7 @@
 									height: 400px;
 								}
 								.item {
+									margin: 0;
 									padding: 0px 16px;
 									h3 {
 										font-size: 20px;

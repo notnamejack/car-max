@@ -53,12 +53,14 @@ export function TokenSection({ scroll }: ISection) {
 			setNavClick(-1)
 			setSpeed(-1);
 		}
-		if (scroll >= 5000
+		if (scroll > 5000
 			&& navClick != 0 && navClick != 1 && navClick != 2 && navClick != 3
 		) {
 			setActiveNav(4);
 			setNavClick(-1)
-			if (speed == -1) setSpeed(0);
+			if (speed == -1) {
+				setSpeed(0);
+			}
 		}
 	}, [scroll]);
 
@@ -175,7 +177,8 @@ export function TokenSection({ scroll }: ISection) {
 									</ul>
 								</div>
 								<div className={clsx(s.cascade_main, activeNav > 1 && s.show)}
-									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}>
+									style={{transform: `translateY(${activeNav > 0 ? (!isMobile ? `-${(!isPad ? 71.3 : 60)}vh` : `-${524}px`) : '0px'})`,
+									position: 'absolute', zIndex: 30}}>
 									<ul className={s.itemes}>
 										<li className={s.item}>
 											<h3>Механика крипто-доната</h3>
@@ -215,7 +218,8 @@ export function TokenSection({ scroll }: ISection) {
 									</ul>
 								</div>
 								<div className={clsx( s.cascade_main, activeNav > 2 && s.show)}
-									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}>
+									style={{transform: `translateY(${activeNav > 1 ? (!isMobile ? `-${(!isPad ? 71.3 : 60)}vh` : `-${524}px`) : '0px'})`,
+									position: 'absolute', zIndex: 30}}>
 									<ul className={s.itemes}>
 										<li className={s.item}>
 											<h3>3D-модели автомобилей</h3>
@@ -262,7 +266,8 @@ export function TokenSection({ scroll }: ISection) {
 									</ul>
 								</div>
 								<div className={clsx( s.cascade_main, activeNav > 3 && s.show)}
-									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}>
+									style={{transform: `translateY(${activeNav > 2 ? (!isMobile ? `-${(!isPad ? 71.3 : 60)}vh` : `-${524}px`) : '0px'})`,
+									position: 'absolute', zIndex: 30}}>
 									<ul className={clsx(s.itemes, s.item_four)}>
 										<li className={clsx(s.item)}>
 											<h3>Удержание аудитории</h3>
@@ -294,7 +299,8 @@ export function TokenSection({ scroll }: ISection) {
 									</ul>
 								</div>
 								<div className={clsx( s.cascade_main, activeNav > 4 && s.show)}
-									style={{transform: `translateY(${activeNav > 3 ? (!isMobile ? `-${(!isPad ? 26.4 : 55)}vh` : `-${524}px`) : '0px'})`}}></div>
+									style={{transform: `translateY(${activeNav > 3 ? (!isMobile ? `-${(!isPad ? 71.3 : 60)}vh` : `-${524}px`) : '0px'})`,
+									position: 'absolute', zIndex: 30}}></div>
 							</div>
 						)}
 						{activeNav == 4 && (
